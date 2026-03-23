@@ -119,3 +119,8 @@ if os.path.exists("vehiculos.xlsx"):
     st.subheader("Registros actuales")
     df = pd.read_excel("vehiculos.xlsx")
     st.dataframe(df)
+
+if st.button("🗑️ Borrar todos los registros"):
+    if os.path.exists("vehiculos.xlsx"):
+        os.remove("vehiculos.xlsx")
+        st.success("Registros eliminados")
