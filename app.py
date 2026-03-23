@@ -115,20 +115,21 @@ if st.button("Registrar"):
 # MOSTRAR DATA (OPCIONAL)
 # =========================
 
-if os.path.exists("vehiculos.xlsx"):
-    st.subheader("Registros actuales")
-    df = pd.read_excel("vehiculos.xlsx")
-    st.dataframe(df)
 
-password = st.text_input("🔐 Clave admin", type="password")
+
+password = st.text_input(" ", type="password")
 
 if password:
-    if password == "serpost2025":  # tu clave real
+    if password == "068566":  # tu clave real
         st.success("Acceso concedido")
 
         if st.button("🗑️ Borrar registros"):
             if os.path.exists("vehiculos.xlsx"):
                 os.remove("vehiculos.xlsx")
                 st.success("Registros eliminados")
+        if os.path.exists("vehiculos.xlsx"):
+            st.subheader("Registros actuales")
+            df = pd.read_excel("vehiculos.xlsx")
+            st.dataframe(df)
     else:
         st.error("Clave incorrecta")
