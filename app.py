@@ -80,28 +80,3 @@ if st.button("Registrar"):
             st.success("Registro guardado en la nube")
         except Exception as e:
             st.error(f"Error al guardar: {e}")
-
-# =========================
-# PANEL ADMIN
-# =========================
-
-password = st.text_input(" ", type="password")
-
-if password:
-    if password == "068566":
-        st.success("Acceso concedido")
-
-        # Obtener datos
-        response = supabase.table("vehiculos").select("*").execute()
-
-        if response.data:
-            st.subheader("Registros actuales")
-            st.dataframe(response.data)
-
-        # Botón borrar TODO
-        if st.button("Borrar registros"):
-            supabase.table("vehiculos").delete().neq("id", 0).execute()
-            st.success("Todos los registros eliminados")
-
-    else:
-        st.error("Clave incorrecta")
