@@ -111,10 +111,6 @@ if st.button("Registrar"):
 
         st.success("Registro guardado correctamente")
 
-st.link_button(
-    "📋 Registrar incidencia",
-    "https://docs.google.com/forms/d/e/1FAIpQLSeRhSUt7CFJubWx8H6xXP5fUETwQXgklBoRSXb6pkhtViMk0A/viewform"
-)
 # =========================
 # MOSTRAR DATA
 # =========================
