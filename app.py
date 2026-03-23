@@ -111,6 +111,8 @@ if st.button("Registrar"):
 
         st.success("Registro guardado correctamente")
 
+st.link_button("📋 Enviar registro", "LINK_FORM")
+
 # =========================
 # MOSTRAR DATA
 # =========================
@@ -131,5 +133,3 @@ if password:
             st.dataframe(df)
     else:
         st.error("Clave incorrecta")
-
-st.link_button("📋 Enviar registro", "LINK_FORM")
