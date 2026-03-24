@@ -15,68 +15,130 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 # TÍTULO
 # =========================
 
-st.title("Registro de Vehículos - Serpost")
+st.title("Sistema de Vehículos - Serpost")
 
 # =========================
-# INPUTS
+# MENÚ
 # =========================
 
-administracion = st.selectbox(
-    "Administración",
-    [
-        "ABANCAY","AREQUIPA","AYACUCHO","BREÑA","CAJAMARCA","CALLAO",
-        "CERRO DE PASCO","CHACHAPOYAS","CHICLAYO","CHIMBOTE","CHOSICA",
-        "COMAS","CUSCO","HUACHO","HUANCAVELICA","HUANCAYO","HUÁNUCO",
-        "HUARAZ","ICA","INGENIERÍA","IQUITOS","JESÚS MARÍA","JULIACA",
-        "LA VICTORIA","LIMA","LINCE","MIRAFLORES","MOQUEGUA","PIURA",
-        "PUCALLPA","PUERTO MALDONADO","PUNO","TACNA","TARAPOTO",
-        "TRUJILLO","TUMBES","VMT"
-    ]
+opcion = st.sidebar.selectbox(
+    "Menú",
+    ["Registrar vehículo", "Reportar incidencia"]
 )
 
-tipo_vehiculo = st.selectbox(
-    "Tipo de vehículo",
-    ["MOTO", "BICICLETA", "CAMIONETA"]
-)
+# =========================
+# REGISTRAR VEHÍCULO
+# =========================
 
-placa = st.text_input("Placa del vehículo")
+if opcion == "Registrar vehículo":
 
-estado = st.selectbox(
-    "Estado del vehículo",
-    ["Operativa", "Inoperativa"]
-)
+    st.subheader("Registro de vehículo")
 
-detalle = ""
+    placa = st.text_input("Placa del vehículo").upper()
 
-if estado == "Inoperativa":
-    detalle = st.selectbox(
-        "Motivo",
-        ["Malograda", "Robada", "En mantenimiento", "Otro"]
+    tipo_vehiculo = st.selectbox(
+        "Tipo de vehículo",
+        ["MOTO", "BICICLETA", "CAMIONETA"]
     )
 
-    if detalle == "Otro":
-        detalle = st.text_input("Especificar motivo")
+    administracion = st.selectbox(
+        "Administración",
+        [
+            "ABANCAY","AREQUIPA","AYACUCHO","BREÑA","CAJAMARCA","CALLAO",
+            "CERRO DE PASCO","CHACHAPOYAS","CHICLAYO","CHIMBOTE","CHOSICA",
+            "COMAS","CUSCO","HUACHO","HUANCAVELICA","HUANCAYO","HUÁNUCO",
+            "HUARAZ","ICA","INGENIERÍA","IQUITOS","JESÚS MARÍA","JULIACA",
+            "LA VICTORIA","LIMA","LINCE","MIRAFLORES","MOQUEGUA","PIURA",
+            "PUCALLPA","PUERTO MALDONADO","PUNO","TACNA","TARAPOTO",
+            "TRUJILLO","TUMBES","VMT"
+        ]
+    )
+
+    # NUEVO CAMPO
+    oficina = st.text_input("Oficina / Sede específica")
+
+    # =========================
+    # VALIDACIÓN
+    # =========================
+
+    campos_completos = all([
+        placa.strip() != "",
+        oficina.strip() != ""
+    ])
+
+    if not campos_completos:
+        st.warning("Completa todos los campos antes de registrar")
+
+    # =========================
+    # BOTÓN
+    # =========================
+
+    if st.button("Registrar vehículo"):
+
+        if not campos_completos:
+            st.error("Faltan campos obligatorios")
+        else:
+            data = {
+                "placa": placa,
+                "tipo": tipo_vehiculo,
+                "administracion": administracion,
+                "oficina": oficina
+            }
+
+            try:
+                supabase.table("vehiculos").insert(data).execute()
+                st.success("Vehículo registrado correctamente")
+            except Exception as e:
+                st.error(f"Error: {e}")
 
 # =========================
-# BOTÓN GUARDAR
+# REPORTAR INCIDENCIA
 # =========================
 
-if st.button("Registrar"):
+elif opcion == "Reportar incidencia":
 
-    if placa == "":
-        st.warning("Ingresa la placa del vehículo")
+    st.subheader("Reporte de incidencia")
+
+    # Traer vehículos desde Supabase
+    response = supabase.table("vehiculos").select("*").execute()
+    vehiculos = response.data
+
+    if not vehiculos:
+        st.warning("No hay vehículos registrados aún")
     else:
-        data = {
-            "fecha": str(datetime.now()),
-            "administracion": administracion,
-            "tipo": tipo_vehiculo,
-            "placa": placa,
-            "estado": estado,
-            "detalle": detalle
-        }
+        placas = [v["placa"] for v in vehiculos]
 
-        try:
-            supabase.table("vehiculos").insert(data).execute()
-            st.success("Registro guardado en la nube")
-        except Exception as e:
-            st.error(f"Error al guardar: {e}")
+        placa_sel = st.selectbox("Seleccionar vehículo", placas)
+
+        estado = st.selectbox(
+            "Estado del vehículo",
+            ["Operativa", "Inoperativa"]
+        )
+
+        detalle = ""
+
+        if estado == "Inoperativa":
+            detalle = st.selectbox(
+                "Motivo",
+                ["Malograda", "Robada", "En mantenimiento", "Otro"]
+            )
+
+            if detalle == "Otro":
+                detalle = st.text_input("Especificar motivo")
+
+        if st.button("Reportar incidencia"):
+
+            vehiculo_id = [v["id"] for v in vehiculos if v["placa"] == placa_sel][0]
+
+            data = {
+                "vehiculo_id": vehiculo_id,
+                "estado": estado,
+                "detalle": detalle,
+                "fecha": str(datetime.now())
+            }
+
+            try:
+                supabase.table("reportes").insert(data).execute()
+                st.success("Incidencia registrada correctamente")
+            except Exception as e:
+                st.error(f"Error: {e}")
