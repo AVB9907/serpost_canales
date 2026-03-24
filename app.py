@@ -38,7 +38,7 @@ if opcion == "Registrar vehículo":
 
     tipo_vehiculo = st.selectbox(
         "Tipo de vehículo",
-        ["MOTO", "BICICLETA", "CAMIONETA"]
+        ["MOTO", "CAMIONETA"]
     )
 
     administracion = st.selectbox(
@@ -54,7 +54,6 @@ if opcion == "Registrar vehículo":
         ]
     )
 
-    # NUEVO CAMPO
     oficina = st.text_input("Oficina / Sede específica")
 
     # =========================
