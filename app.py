@@ -2,6 +2,8 @@ import streamlit as st
 from datetime import datetime
 from supabase import create_client
 
+st.set_page_config(layout="wide")
+
 # =========================
 # CONEXIÓN SUPABASE
 # =========================
@@ -12,25 +14,31 @@ SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # =========================
-# TÍTULO
+# ESTADO DE NAVEGACIÓN
 # =========================
 
-st.title("Sistema de Vehículos - Serpost")
+if "pagina" not in st.session_state:
+    st.session_state.pagina = "inicio"
+    if st.session_state.pagina == "inicio":
 
-# =========================
-# MENÚ
-# =========================
+    st.title("🚚 Sistema Logístico - Serpost")
 
-opcion = st.sidebar.selectbox(
-    "Menú",
-    ["Registrar vehículo", "Reportar incidencia"]
-)
+    st.markdown("### Selecciona una opción")
 
-# =========================
-# REGISTRAR VEHÍCULO
-# =========================
+    col1, col2, col3 = st.columns(3)
 
-if opcion == "Registrar vehículo":
+    with col1:
+        if st.button("🚗 Registrar vehículo", use_container_width=True):
+            st.session_state.pagina = "registro"
+
+    with col2:
+        if st.button("⚠️ Reportar incidencia", use_container_width=True):
+            st.session_state.pagina = "incidencia"
+
+    with col3:
+        if st.button("🌧️ Demoras operativas", use_container_width=True):
+            st.session_state.pagina = "demoras"
+elif st.session_state.pagina == "registro":
 
     st.subheader("Registro de vehículo")
 
@@ -56,10 +64,6 @@ if opcion == "Registrar vehículo":
 
     oficina = st.text_input("Oficina / Sede específica")
 
-    # =========================
-    # ESTADO DEL VEHÍCULO
-    # =========================
-
     estado = st.selectbox(
         "Estado del vehículo",
         ["Operativa", "Inoperativa"]
@@ -76,10 +80,6 @@ if opcion == "Registrar vehículo":
         if detalle == "Otro":
             detalle = st.text_input("Especificar motivo")
 
-    # =========================
-    # VALIDACIÓN
-    # =========================
-
     campos_completos = all([
         placa.strip() != "",
         oficina.strip() != "",
@@ -87,16 +87,12 @@ if opcion == "Registrar vehículo":
     ])
 
     if not campos_completos:
-        st.warning("Completa todos los campos antes de registrar")
-
-    # =========================
-    # BOTÓN
-    # =========================
+        st.warning("Completa todos los campos")
 
     if st.button("Registrar vehículo"):
 
         if not campos_completos:
-            st.error("Faltan campos obligatorios")
+            st.error("Faltan campos")
         else:
             data = {
                 "placa": placa,
@@ -114,11 +110,11 @@ if opcion == "Registrar vehículo":
             except Exception as e:
                 st.error(f"Error: {e}")
 
-# =========================
-# REPORTAR INCIDENCIA
-# =========================
+    # BOTÓN VOLVER
+    if st.button("⬅️ Volver"):
+        st.session_state.pagina = "inicio"
 
-elif opcion == "Reportar incidencia":
+elif st.session_state.pagina == "incidencia":
 
     st.subheader("Reporte de incidencia")
 
@@ -134,26 +130,18 @@ elif opcion == "Reportar incidencia":
     if tipo_incidente == "Otro":
         detalle = st.text_input("Especificar incidencia")
 
-    # =========================
-    # VALIDACIÓN
-    # =========================
-
     campos_completos = all([
         placa.strip() != "",
         detalle.strip() != ""
     ])
 
     if not campos_completos:
-        st.warning("Completa todos los campos antes de reportar")
-
-    # =========================
-    # BOTÓN
-    # =========================
+        st.warning("Completa todos los campos")
 
     if st.button("Reportar incidencia"):
 
         if not campos_completos:
-            st.error("Faltan campos obligatorios")
+            st.error("Faltan campos")
         else:
             data = {
                 "placa": placa,
@@ -167,3 +155,19 @@ elif opcion == "Reportar incidencia":
                 st.success("Incidencia registrada correctamente")
             except Exception as e:
                 st.error(f"Error: {e}")
+
+    if st.button("⬅️ Volver"):
+        st.session_state.pagina = "inicio"
+elif st.session_state.pagina == "demoras":
+
+    st.subheader("Demoras operativas")
+
+    st.markdown("Reporta problemas por clima, huaicos u otros eventos")
+
+    st.link_button(
+        "📋 Ir al formulario de demoras",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeRhSUt7CFJubWx8H6xXP5fUETwQXgklBoRSXb6pkhtViMk0A/viewform"
+    )
+
+    if st.button("⬅️ Volver"):
+        st.session_state.pagina = "inicio"
