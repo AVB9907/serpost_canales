@@ -19,7 +19,8 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
-    if st.session_state.pagina == "inicio":
+    
+if st.session_state.pagina == "inicio":
 
     st.title("🚚 Sistema Logístico - Serpost")
 
