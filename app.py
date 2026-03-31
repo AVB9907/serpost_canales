@@ -128,8 +128,8 @@ elif st.session_state.pagina == "vehiculos":
 
     with col1:
         if st.button("← Volver"):
-        st.session_state.pagina = "inicio"
-        st.rerun()
+            st.session_state.pagina = "inicio"
+            st.rerun()
         
 # MÓDULO DEMORAS OPERATIVAS
 
