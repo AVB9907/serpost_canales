@@ -25,16 +25,21 @@ body {
     transform: scale(1.03);
 }
 
+st.markdown("""
+<style>
 .titulo {
-    font-size: 36px;
-    font-weight: bold;
+    font-size: 48px;
+    font-weight: 700;
     color: #1f4e79;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .sub {
     text-align: center;
-    color: gray;
+    color: #6c757d;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 </style>
 """, unsafe_allow_html=True)
