@@ -50,6 +50,12 @@ SUPABASE_KEY = "TU_KEY"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
+# USUARIOS
+
+def login(usuario, password):
+    res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
+    return len(res.data) > 0
+
 # =========================
 # SESSION STATE
 # =========================
@@ -108,13 +114,6 @@ elif st.session_state.pagina == "vehiculos":
         st.session_state.pagina = "inicio"
         st.rerun()
 
-# USUARIOS
-
-def login(usuario, password):
-    res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
-    return len(res.data) > 0
-
-
 elif st.session_state.pagina == "apartados":
     st.subheader("Apartados postales")
     st.write("Módulo en construcción")
@@ -122,7 +121,6 @@ elif st.session_state.pagina == "apartados":
     if st.button("Volver"):
         st.session_state.pagina = "inicio"
         st.rerun()
-
 
 elif st.session_state.pagina == "nodist":
     st.subheader("No distribuibles")
