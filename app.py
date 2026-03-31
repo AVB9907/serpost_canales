@@ -46,30 +46,6 @@ div.stButton > button:hover {
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<style>
-[data-testid="stAppViewContainer"] {
-    background-color: #f2f2f2;
-}
-
-/* BOTÓN VOLVER PEQUEÑO */
-div.stButton:nth-child(1) > button {
-    height: 40px !important;
-    font-size: 14px !important;
-    padding: 5px 12px !important;
-    border-radius: 8px !important;
-    background-color: #28a745 !important;
-    color: white !important;
-    box-shadow: none !important;
-}
-
-div.stButton:nth-child(1) > button:hover {
-    background-color: #218838 !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
@@ -133,10 +109,10 @@ elif st.session_state.pagina == "vehiculos":
             st.session_state.pagina = "incidencia"
             st.rerun()
 
-    col1, col2, col3 = st.columns([1,1,8])
+    col1, col2, col3 = st.columns([1,2,8])
 
     with col1:
-        if st.button("← Volver"):
+        if st.button("← Volver", type="primary"):
             st.session_state.pagina = "inicio"
             st.rerun()
         
