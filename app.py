@@ -4,9 +4,7 @@ from supabase import create_client
 
 st.set_page_config(layout="wide")
 
-# =========================
 # UI
-# =========================
 
 st.markdown("""
 <style>
@@ -15,7 +13,7 @@ st.markdown("""
 }
 
 .titulo {
-    font-size: 20px;
+    font-size: 180px;
     font-weight: 700;
     color: #1f4e79;
     text-align: center;
