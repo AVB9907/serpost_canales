@@ -10,6 +10,22 @@ st.set_page_config(layout="wide")
 
 st.markdown("""
 <style>
+[data-testid="stAppViewContainer"] {
+    background-color: #f4f6f9;
+}
+
+.titulo {
+    font-size: 56px;
+    font-weight: 800;
+    color: #1f4e79;
+    text-align: center;
+}
+
+.sub {
+    text-align: center;
+    color: #6c757d;
+    font-size: 20px;
+}
 
 /* BOTONES GRANDES */
 div.stButton > button {
