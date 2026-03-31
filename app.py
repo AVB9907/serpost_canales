@@ -11,11 +11,6 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
-/* FONDO */
-[data-testid="stAppViewContainer"] {
-    background-color: #f4f6f9;
-}
-
 /* BOTONES GRANDES */
 div.stButton > button {
     height: 140px !important;
