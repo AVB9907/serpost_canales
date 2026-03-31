@@ -139,7 +139,7 @@ elif st.session_state.pagina == "nodist":
     st.subheader("No distribuibles")
     st.write("Módulo en construcción")
     
-     col1, col2 = st.columns([1,6])
+    col1, col2 = st.columns([1,6])
 
     with col1:
         if st.button("← Volver"):
