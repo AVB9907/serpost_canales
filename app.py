@@ -43,6 +43,7 @@ button:has(span:contains("Volver")) {
 
 </style>
 """, unsafe_allow_html=True)
+
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
