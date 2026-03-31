@@ -11,9 +11,9 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
-/* FONDO REAL DE STREAMLIT */
-.stApp {
-    background-color: #F2F2F2;
+/* FONDO */
+[data-testid="stAppViewContainer"] {
+    background-color: #f4f6f9;
 }
 
 /* TÍTULO */
@@ -22,7 +22,7 @@ st.markdown("""
     font-weight: 800;
     color: #1f4e79;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 /* SUBTÍTULO */
@@ -33,43 +33,34 @@ st.markdown("""
     margin-bottom: 40px;
 }
 
-/* BOTONES GRANDES (MÓDULOS) */
-div.stButton > button {
-    height: 140px;
-    font-size: 20px;
-    font-weight: 600;
-    border-radius: 16px;
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
-    transition: all 0.2s ease;
+/* BOTONES GRANDES */
+button[kind="secondary"] {
+    height: 140px !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    border-radius: 16px !important;
+    background-color: white !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.08) !important;
 }
 
 /* HOVER */
-div.stButton > button:hover {
-    background-color: #eef3f8;
+button[kind="secondary"]:hover {
+    background-color: #eef3f8 !important;
     transform: translateY(-3px);
 }
 
 /* BOTÓN VOLVER */
-.boton-volver button {
+button:has(span:contains("Volver")) {
     background-color: #28a745 !important;
     color: white !important;
     font-size: 14px !important;
     padding: 6px 14px !important;
     border-radius: 8px !important;
-    border: none !important;
-    width: auto !important;
-}
-
-/* HOVER VOLVER */
-.boton-volver button:hover {
-    background-color: #218838 !important;
 }
 
 </style>
 """, unsafe_allow_html=True)
-
 # SUPABASE
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
