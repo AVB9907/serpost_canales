@@ -9,7 +9,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 [data-testid="stAppViewContainer"] {
-    background-color: #f572f1 !important;
+    background-color: #f0f0f0 !important;
 }
 
 .titulo {
