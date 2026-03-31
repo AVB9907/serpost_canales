@@ -22,7 +22,7 @@ st.markdown("""
 
 .sub {
     text-align: center;
-    color: #a5b9d2 !important;
+    color: #496991 !important;
     font-size: 20px !important;
 }
 
