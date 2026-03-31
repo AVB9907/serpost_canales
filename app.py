@@ -15,8 +15,8 @@ st.markdown("""
 }
 
 .titulo {
-    font-size: 800px;
-    font-weight: 2000;
+    font-size: 2000px;
+    font-weight: 700;
     color: #1f4e79;
     text-align: center;
 }
