@@ -43,6 +43,21 @@ div.stButton > button:hover {
     transform: translateY(-3px);
 }
 
+/* BOTÓN VOLVER PEQUEÑO */
+div.stButton:nth-child(1) > button {
+    height: 40px !important;
+    font-size: 14px !important;
+    padding: 5px 12px !important;
+    border-radius: 8px !important;
+    background-color: #28a745 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+div.stButton:nth-child(1) > button:hover {
+    background-color: #218838 !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -109,11 +124,13 @@ elif st.session_state.pagina == "vehiculos":
             st.session_state.pagina = "incidencia"
             st.rerun()
 
+    col1, col2, col3 = st.columns([1,1,8])
+
     with col1:
         if st.button("← Volver"):
-            st.session_state.pagina = "inicio"
-            st.rerun()
-
+        st.session_state.pagina = "inicio"
+        st.rerun()
+        
 # MÓDULO DEMORAS OPERATIVAS
 
 elif st.session_state.pagina == "demoras":
