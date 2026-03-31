@@ -112,7 +112,7 @@ elif st.session_state.pagina == "vehiculos":
     col1, col2 = st.columns([1,10])
     
     with col1:
-        if st.button("←", help="Volver"):
+        if st.button("← Volver", help="Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
             
