@@ -41,6 +41,26 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+div.stButton > button {
+    height: 120px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+div.stButton > button:hover {
+    background-color: #f0f4f8;
+    transform: scale(1.02);
+}
+</style>
+""", unsafe_allow_html=True)
+
 # =========================
 # SUPABASE
 # =========================
