@@ -114,6 +114,7 @@ def login(usuario, password):
     res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
     return len(res.data) > 0
 
+
 elif st.session_state.pagina == "apartados":
     st.subheader("Apartados postales")
     st.write("Módulo en construcción")
