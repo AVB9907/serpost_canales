@@ -5,7 +5,7 @@ from supabase import create_client
 st.set_page_config(layout="wide")
 
 # =========================
-# ESTILOS PRO
+# UI
 # =========================
 
 st.markdown("""
@@ -46,7 +46,7 @@ body {
 # =========================
 
 SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
-SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
+SUPABASE_KEY = "TU_KEY"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
@@ -57,64 +57,36 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
 
-import streamlit as st
-from datetime import datetime
-from supabase import create_client
+if st.session_state.pagina == "inicio":
 
-st.set_page_config(layout="wide")
+    st.markdown('<p class="titulo">Administración de Canales - Serpost</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
 
-# =========================
-# ESTILOS
-# =========================
+    col1, col2, col3, col4 = st.columns(4)
 
-st.markdown("""
-<style>
-body {
-    background-color: #f4f6f9;
-}
+    with col1:
+        st.markdown('<div class="card">Vehículos</div>', unsafe_allow_html=True)
+        if st.button("Ingresar", key="vehiculos"):
+            st.session_state.pagina = "vehiculos"
+            st.rerun()
 
-.card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: 0.2s;
-}
+    with col2:
+        st.markdown('<div class="card">Demoras operativas</div>', unsafe_allow_html=True)
+        if st.button("Ingresar", key="demoras"):
+            st.session_state.pagina = "demoras"
+            st.rerun()
 
-.card:hover {
-    transform: scale(1.03);
-}
+    with col3:
+        st.markdown('<div class="card">Apartados postales</div>', unsafe_allow_html=True)
+        if st.button("Ingresar", key="apartados"):
+            st.session_state.pagina = "apartados"
+            st.rerun()
 
-.titulo {
-    font-size: 36px;
-    font-weight: bold;
-    color: #1f4e79;
-    text-align: center;
-}
-
-.sub {
-    text-align: center;
-    color: gray;
-}
-</style>
-""", unsafe_allow_html=True)
-
-# =========================
-# SUPABASE
-# =========================
-
-SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
-SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
-
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-# =========================
-# SESSION STATE
-# =========================
-
-if "pagina" not in st.session_state:
-    st.session_state.pagina = "inicio"
+    with col4:
+        st.markdown('<div class="card">No distribuibles</div>', unsafe_allow_html=True)
+        if st.button("Ingresar", key="nodist"):
+            st.session_state.pagina = "nodist"
+            st.rerun()
 
 elif st.session_state.pagina == "vehiculos":
 
@@ -136,7 +108,7 @@ elif st.session_state.pagina == "vehiculos":
         st.session_state.pagina = "inicio"
         st.rerun()
 
-# EJEMPLO SIMPLE
+# USUARIOS
 
 def login(usuario, password):
     res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
@@ -149,6 +121,7 @@ elif st.session_state.pagina == "apartados":
     if st.button("Volver"):
         st.session_state.pagina = "inicio"
         st.rerun()
+
 
 elif st.session_state.pagina == "nodist":
     st.subheader("No distribuibles")
