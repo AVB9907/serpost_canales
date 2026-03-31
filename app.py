@@ -4,14 +4,18 @@ from supabase import create_client
 
 st.set_page_config(layout="wide")
 
+# =========================
 # UI
+# =========================
 
 st.markdown("""
 <style>
+
 body {
     background-color: #f4f6f9;
 }
 
+/* TARJETAS */
 .card {
     background-color: white;
     padding: 30px;
@@ -25,27 +29,24 @@ body {
     transform: scale(1.03);
 }
 
-st.markdown("""
-<style>
+/* TÍTULO */
 .titulo {
-    font-size: 30px;
+    font-size: 48px;
     font-weight: 700;
     color: #1f4e79;
     text-align: center;
     margin-bottom: 10px;
 }
 
+/* SUBTÍTULO */
 .sub {
     text-align: center;
     color: #6c757d;
     font-size: 18px;
     margin-bottom: 30px;
 }
-</style>
-""", unsafe_allow_html=True)
 
-st.markdown("""
-<style>
+/* BOTONES GRANDES (MÓDULOS) */
 div.stButton > button {
     height: 120px;
     font-size: 18px;
@@ -61,11 +62,8 @@ div.stButton > button:hover {
     background-color: #f0f4f8;
     transform: scale(1.02);
 }
-</style>
-""", unsafe_allow_html=True)
 
-st.markdown("""
-<style>
+/* BOTÓN VOLVER */
 .boton-volver button {
     background-color: #28a745 !important;
     color: white !important;
@@ -79,6 +77,7 @@ st.markdown("""
 .boton-volver button:hover {
     background-color: #218838 !important;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
