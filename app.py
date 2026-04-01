@@ -112,16 +112,16 @@ if st.session_state.pagina == "inicio":
 
 # VEHICULOS
     with col1:
-    if st.markdown("""
-    <a href="?page=vehiculos" target="_self" style="text-decoration: none;">
-        <div class="card">
-            <div class="card-icon">1</div>
-            <div class="card-title">Gestión de vehículos</div>
-            <div class="card-sub">Registro y control de la flota vehicular</div>
-        </div>
-    </a>
-    """, unsafe_allow_html=True):
-        pass
+        if st.markdown("""
+        <a href="?page=vehiculos" target="_self" style="text-decoration: none;">
+            <div class="card">
+                <div class="card-icon">1</div>
+                <div class="card-title">Gestión de vehículos</div>
+                <div class="card-sub">Registro y control de la flota vehicular</div>
+            </div>
+        </a>
+        """, unsafe_allow_html=True):
+            pass
         
 # DEMORAS
     with col2:
