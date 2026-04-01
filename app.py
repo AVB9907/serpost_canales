@@ -123,61 +123,101 @@ if "pagina" in st.query_params:
 col1, col2, col3, col4 = st.columns(4)
 
 # ===== VEHICULOS =====
+elif st.session_state.pagina == "vehiculos":
+
+    st.markdown("## 🚚 Módulo Vehículos")
+    st.markdown("Seleccione una opción:")
+
+    col1, col2 = st.columns(2)
+
     with col1:
-        if st.button("vehiculos", key="vehiculos_btn", use_container_width=True):
-            st.session_state.pagina = "vehiculos"
+        if st.button("Registrar vehículo", use_container_width=True):
+            st.session_state.pagina = "registro_vehiculo"
             st.rerun()
-    
-        st.markdown("""
-        <div class="card">
-            <div class="card-icon">🚚</div>
-            <div class="card-title">Gestión de vehículos</div>
-            <div class="card-sub">Registro y control de la flota vehicular</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-# ===== DEMORAS =====
+
     with col2:
-        if st.button("demoras", key="demoras_btn", use_container_width=True):
-            st.session_state.pagina = "demoras"
+        if st.button("Reportar incidencia", use_container_width=True):
+            st.session_state.pagina = "incidencia"
             st.rerun()
-    
-        st.markdown("""
-        <div class="card">
-            <div class="card-icon">⏱️</div>
-            <div class="card-title">Reportar demoras</div>
-            <div class="card-sub">Incidencias operativas</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
+
+    st.divider()
+
+    if st.button("← Volver"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
+
+
+# ===== REGISTRO VEHICULO =====
+elif st.session_state.pagina == "registro_vehiculo":
+
+    st.markdown("## 📝 Registro de vehículo")
+
+    placa = st.text_input("Placa")
+    tipo = st.selectbox("Tipo de vehículo", ["Camión", "Van", "Auto"])
+    capacidad = st.number_input("Capacidad (kg)", min_value=0)
+
+    if st.button("Guardar"):
+        st.success("Vehículo registrado")
+
+    if st.button("← Volver"):
+        st.session_state.pagina = "vehiculos"
+        st.rerun()
+
+
+# ===== INCIDENCIA =====
+elif st.session_state.pagina == "incidencia":
+
+    st.markdown("## ⚠️ Reporte de incidencia")
+
+    placa = st.text_input("Placa del vehículo")
+    descripcion = st.text_area("Descripción del problema")
+    fecha = st.date_input("Fecha")
+
+    if st.button("Enviar reporte"):
+        st.success("Incidencia registrada")
+
+    if st.button("← Volver"):
+        st.session_state.pagina = "vehiculos"
+        st.rerun()
+
+
+# ===== DEMORAS =====
+elif st.session_state.pagina == "demoras":
+
+    st.subheader("Demoras operativas")
+
+    st.markdown("Reporta problemas por clima, huaicos u otros eventos")
+
+    st.link_button(
+        "Ir al formulario de demoras",
+        "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
+    )
+
+    if st.button("← Volver"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
+
+
 # ===== APARTADOS =====
-    with col3:
-        if st.button("apartados", key="apartados_btn", use_container_width=True):
-            st.session_state.pagina = "apartados"
-            st.rerun()
-    
-        st.markdown("""
-        <div class="card">
-            <div class="card-icon">📦</div>
-            <div class="card-title">Apartados postales</div>
-            <div class="card-sub">Gestión de apartados</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
+elif st.session_state.pagina == "apartados":
+
+    st.subheader("Apartados postales")
+    st.write("Módulo en construcción")
+
+    if st.button("← Volver"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
+
+
 # ===== NO DISTRIBUIBLES =====
-    
-    with col4:
-        if st.button("nodist", key="nodist_btn", use_container_width=True):
-            st.session_state.pagina = "nodist"
-            st.rerun()
-    
-        st.markdown("""
-        <div class="card">
-            <div class="card-icon">⚠️</div>
-            <div class="card-title">No distribuibles</div>
-            <div class="card-sub">Envíos no entregados</div>
-        </div>
-        """, unsafe_allow_html=True)
+elif st.session_state.pagina == "nodist":
+
+    st.subheader("No distribuibles")
+    st.write("Módulo en construcción")
+
+    if st.button("← Volver"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
     
 # MÓDULO VEHICULOS
 
