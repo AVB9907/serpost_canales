@@ -131,6 +131,8 @@ if st.session_state["pagina"] == "inicio":
             st.session_state["pagina"] = "vehiculos"
             st.rerun()
                      
+        st.markdown('</div>', unsafe_allow_html=True)
+                     
     # DEMORAS
     with col2:
         if st.button("⏱️\n\nDemoras operativas\nIncidencias externas",
