@@ -35,39 +35,46 @@ st.markdown("""
 
 /* BOTONES GRANDES */
 
+/* Make buttons look like cards/boxes */
 div.stButton > button {
-    width: 100%;
-    border-radius: 12px !important;
-    padding: 12px 16px !important;
+    width: 100% !important;
+    height: 140px !important;   /* 🔥 controls box size */
+    border-radius: 16px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px !important;
+    font-weight: 600;
+
     border: 1px solid #e6e6e6 !important;
     background-color: white !important;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
+
+    transition: all 0.25s ease;
 }
 
-/*COLORES DE MODULOS*/
+/* Hover = lift effect */
+div.stButton > button:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
 
+/* Optional: subtle color accents */
 div.stButton:nth-of-type(1) > button {
-    border-top: 4px solid #1f77b4 !important;
+    box-shadow: 0 0 0 2px rgba(31,119,180,0.15);
 }
 
 div.stButton:nth-of-type(2) > button {
-    border-top: 4px solid #dc3545 !important;
+    box-shadow: 0 0 0 2px rgba(220,53,69,0.15);
 }
 
 div.stButton:nth-of-type(3) > button {
-    border-top: 4px solid #ffc107 !important;
+    box-shadow: 0 0 0 2px rgba(255,193,7,0.2);
 }
 
 div.stButton:nth-of-type(4) > button {
-    border-top: 4px solid #6c757d !important;
-}
-
-/* Hover effect */
-div.stButton > button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    border-color: #dcdcdc !important;
+    box-shadow: 0 0 0 2px rgba(108,117,125,0.2);
 }
 
 </style>
