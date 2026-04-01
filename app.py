@@ -33,40 +33,54 @@ st.markdown("""
     font-size: 20px !important;
 }
 
-/* BOTONES GRANDES */
+/* HIDE DEFAULT BUTTON LOOK */
 div.stButton > button {
-    height: 140px !important;
-    font-size: 20px !important;
-    font-weight: 600 !important;
-    border-radius: 16px !important;
-    background-color: white !important;
-    border: 1px solid #e0e0e0 !important;
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.08) !important;
-    transition: all 0.2s ease;
+    height: 160px !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* CARD DESIGN */
+.card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.25s ease;
 }
 
 /* HOVER */
-div.stButton > button:hover {
-    background-color: #eef3f8 !important;
-    transform: translateY(-3px);
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
-/* COLORES POR MÓDULO */
-div.stButton:nth-of-type(1) > button {
-    border-left: 6px solid #1f77b4 !important;
+/* ICONO */
+.card-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
 }
 
-div.stButton:nth-of-type(2) > button {
-    border-left: 6px solid #dc3545 !important;
+/* TITULO */
+.card-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #2c3e50;
 }
 
-div.stButton:nth-of-type(3) > button {
-    border-left: 6px solid #ffc107 !important;
+/* SUBTITULO */
+.card-sub {
+    font-size: 14px;
+    color: #666;
 }
 
-div.stButton:nth-of-type(4) > button {
-    border-left: 6px solid #6c757d !important;
-}
+/* OPTIONAL: COLORED TOP BORDER (nice touch) */
+.card:nth-child(1) { border-top: 4px solid #1f77b4; }
+.card:nth-child(2) { border-top: 4px solid #dc3545; }
+.card:nth-child(3) { border-top: 4px solid #ffc107; }
+.card:nth-child(4) { border-top: 4px solid #6c757d; }
 
 </style>
 """, unsafe_allow_html=True)
@@ -96,30 +110,62 @@ if st.session_state.pagina == "inicio":
 
     col1, col2, col3, col4 = st.columns(4)
 
-    with col1:
-        if st.button("Gestión de vehículos", use_container_width=True):
-            st.session_state.pagina = "vehiculos"
-            st.rerun()
-        st.markdown("Registro y control del estado de la flota vehicular")
+# VEHICULOS
+with col1:
+    if st.button(" ", key="vehiculos", use_container_width=True):
+        st.session_state.pagina = "vehiculos"
+        st.rerun()
 
-    with col2:
-        if st.button("Reportar demoras", use_container_width=True):
-            st.session_state.pagina = "demoras"
-            st.rerun()
-        st.markdown("Reporte de incidencias operativas por factores externos")
+    st.markdown("""
+    <div class="card">
+        <div class="card-icon">🚚</div>
+        <div class="card-title">Gestión de vehículos</div>
+        <div class="card-sub">Registro y control de la flota vehicular</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    with col3:
-        if st.button("Apartados postales", use_container_width=True):
-            st.session_state.pagina = "apartados"
-            st.rerun()
-        st.markdown("Gestión de apartados postales por administración")
+# DEMORAS
+with col2:
+    if st.button(" ", key="demoras", use_container_width=True):
+        st.session_state.pagina = "demoras"
+        st.rerun()
 
-    with col4:
-        if st.button("No distribuibles", use_container_width=True):
-            st.session_state.pagina = "nodist"
-            st.rerun()
-        st.markdown("Reportar envíos no distribuibles")
+    st.markdown("""
+    <div class="card">
+        <div class="card-icon">⚠️</div>
+        <div class="card-title">Reportar demoras</div>
+        <div class="card-sub">Incidencias operativas por factores externos</div>
+    </div>
+    """, unsafe_allow_html=True)
 
+# APARTADOS
+with col3:
+    if st.button(" ", key="apartados", use_container_width=True):
+        st.session_state.pagina = "apartados"
+        st.rerun()
+
+    st.markdown("""
+    <div class="card">
+        <div class="card-icon">📬</div>
+        <div class="card-title">Apartados postales</div>
+        <div class="card-sub">Gestión de apartados por administración</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# NO DISTRIBUIBLES
+with col4:
+    if st.button(" ", key="nodist", use_container_width=True):
+        st.session_state.pagina = "nodist"
+        st.rerun()
+
+    st.markdown("""
+    <div class="card">
+        <div class="card-icon">📦</div>
+        <div class="card-title">No distribuibles</div>
+        <div class="card-sub">Reporte de envíos no distribuibles</div>
+    </div>
+    """, unsafe_allow_html=True)
+    
 # MÓDULO VEHICULOS
 
 elif st.session_state.pagina == "vehiculos":
