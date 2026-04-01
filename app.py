@@ -44,6 +44,20 @@ p {
     font-size: 14px;
 }
 
+div.volver-btn button {
+    background-color: transparent !important;
+    color: #94a3b8 !important;
+    border: none !important;
+    font-size: 14px !important;
+    padding: 6px 8px !important;
+}
+
+/* Hover */
+.volver-btn button:hover {
+    color: #0ea5e9 !important;
+    background-color: rgba(14,165,233,0.1) !important;
+}
+
 /* BOTONES GRANDES */
 
 div.stButton > button {
@@ -89,20 +103,6 @@ div.stButton:nth-of-type(3) > button {
 div.stButton:nth-of-type(4) > button {
     border-top: 5px solid #334155 !important;
     box-shadow: inset 0 0 0 1px rgba(51,65,85,0.4);
-}
-
-div.volver-btn button {
-    background-color: transparent !important;
-    color: #94a3b8 !important;
-    border: none !important;
-    font-size: 14px !important;
-    padding: 6px 8px !important;
-}
-
-/* Hover */
-.volver-btn button:hover {
-    color: #0ea5e9 !important;
-    background-color: rgba(14,165,233,0.1) !important;
 }
 
 </style>
