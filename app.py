@@ -43,11 +43,19 @@ h1, h2, h3, h4, h5, h6, p {
     color: #ffffff !important;
 }
 
-/* ===== BUTTON AS CARD ===== */
-
+/* ===== DEFAULT BUTTON (NORMAL SIZE) ===== */
 div.stButton > button {
+    height: auto;
+    width: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ===== HOME CARD BUTTONS ONLY ===== */
+.home-card div.stButton > button {
     height: 200px;
-    width: 90%;
+    width: 100%;
 
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
@@ -65,12 +73,11 @@ div.stButton > button {
     padding: 20px;
 }
 
-/* ===== HOVER EFFECT (FIXED) ===== */
-div.stButton > button:hover {
-    background: rgba(255,255,255,0.95) !important; 
+/* hover */
+.home-card div.stButton > button:hover {
+    background: rgba(255,255,255,0.95) !important;
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    }
+}
 
 /* ===== OPTIONAL: CENTER TEXT NICELY ===== */
 div.stButton > button {
