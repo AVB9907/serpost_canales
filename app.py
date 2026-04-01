@@ -44,7 +44,7 @@ div.stButton > button {
 /* CARD DESIGN */
 
 .card {
-    pointer-events: none;
+    pointer-events: none !important; 
 }
 
 .card {
