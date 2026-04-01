@@ -218,7 +218,7 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Incidencia registrada")
             st.rerun()
 
-        if st.button("← Volver", key="volver_btn")
+        if st.button("← Volver", key="volver_btn"):
             st.session_state.subvehiculos = "menu"
             st.rerun()
 
