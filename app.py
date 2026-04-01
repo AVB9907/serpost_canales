@@ -80,6 +80,23 @@ div.stButton > button {
     box-shadow: none !important;
 }
 
+/* BUTTON LAYER (CLICKABLE) */
+div.stButton {
+    position: relative;
+}
+
+div.stButton > button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;           /* invisible */
+    z-index: 2;           /* above card */
+    cursor: pointer;
+}
+
 /* CARD */
 .card {
     position: relative;
