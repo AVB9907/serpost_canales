@@ -15,18 +15,6 @@ st.markdown("""
     background-repeat: no-repeat;
 }
 
-/* Optional dark overlay for better contrast */
-[data-testid="stAppViewContainer"]::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 40, 100, 0.55);
-    z-index: 0;
-}
-
 /* Make content appear above overlay */
 [data-testid="stAppViewContainer"] > div {
     position: relative;
