@@ -82,160 +82,108 @@ def login(usuario, password):
     res = supabase.table("usuarios").select("*").eq("usuario", usuario).eq("password", password).execute()
     return len(res.data) > 0
 
-# ===== SESSION STATE ===== #
+# SESSION STATE
 
 if "pagina" not in st.session_state:
-    st.session_state["pagina"] = "inicio"
-    
-# ===== MAIN NAVIGATION ===== #
+    st.session_state.pagina = "inicio"
 
-if st.session_state["pagina"] == "inicio":
+if st.session_state.pagina == "inicio":
 
     st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
     st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
 
     col1, col2, col3, col4 = st.columns(4)
 
-    # VEHICULOS
     with col1:
-        if st.button("🚚\n\nGestión de vehículos\nRegistro y control de la flota", 
-                 key="vehiculos_btn", 
-                 use_container_width=True):
-            st.session_state["pagina"] = "vehiculos"
+        if st.button("Gestión de vehículos", use_container_width=True):
+            st.session_state.pagina = "vehiculos"
             st.rerun()
-                     
-    # DEMORAS
+        st.markdown("Registro y control del estado de la flota vehicular")
+
     with col2:
-        if st.button("⏱️\n\nDemoras operativas\nIncidencias externas",
-                key="demoras_btn",
-                use_container_width=True):
-            st.session_state["pagina"] = "demoras"
+        if st.button("Reportar demoras", use_container_width=True):
+            st.session_state.pagina = "demoras"
             st.rerun()
+        st.markdown("Reporte de incidencias operativas por factores externos")
 
-    # APARTADOS
     with col3:
-        if st.button("📦\n\nApartados\nGestión de apartados",
-                key="apartados_btn",
-                use_container_width=True):
-            st.session_state["pagina"] = "apartados"
+        if st.button("Apartados postales", use_container_width=True):
+            st.session_state.pagina = "apartados"
             st.rerun()
-        
-    # NO DISTRIBUIBLES
-    with col4:
-        if st.button("⚠️\n\nNo distribuibles\nEnvíos no entregados",
-                key="nodist_btn",
-                use_container_width=True):
-            st.session_state["pagina"] = "nodist"
-            st.rerun()
+        st.markdown("Gestión de apartados postales por administración")
 
-# ===== MODULO VEHICULOS =====
+    with col4:
+        if st.button("No distribuibles", use_container_width=True):
+            st.session_state.pagina = "nodist"
+            st.rerun()
+        st.markdown("Reportar envíos no distribuibles")
+
+# MÓDULO VEHICULOS
+
 elif st.session_state.pagina == "vehiculos":
 
-    # subestado interno
-    if "subvehiculos" not in st.session_state:
-        st.session_state.subvehiculos = "menu"
-        st.rerun()
+    st.markdown("## Módulo Vehículos")
 
-    st.markdown("## 🚚 Módulo Vehículos")
+    col1, col2 = st.columns(2)
 
-    # MENU
-    if st.session_state.subvehiculos == "menu":
+    with col1:
+        if st.button("Registrar vehículo"):
+            st.session_state.pagina = "registro"
+            st.rerun()
 
-        st.markdown("Seleccione una opción:")
+    with col2:
+        if st.button("Reportar incidencia"):
+            st.session_state.pagina = "incidencia"
+            st.rerun()
 
-        col1, col2 = st.columns(2)
-
-        with col1:
-            if st.button("Registrar vehículo", use_container_width=True):
-                st.session_state.subvehiculos = "registro"
-                st.rerun()
-
-        with col2:
-            if st.button("Reportar incidencia", use_container_width=True):
-                st.session_state.subvehiculos = "incidencia"
-                st.rerun()
-
-    # REGISTRO
-    elif st.session_state.subvehiculos == "registro":
-
-        st.markdown("### 📝 Registro de vehículo")
-
-        placa = st.text_input("Placa")
-        tipo = st.selectbox("Tipo", ["Camión", "Van", "Auto"])
-        capacidad = st.number_input("Capacidad (kg)", min_value=0)
-
-        if st.button("Guardar"):
-            st.success("Vehículo registrado")
+    col1, col2 = st.columns([1,10])
+    
+    with col1:
+        if st.button("← Volver", help="Volver"):
+            st.session_state.pagina = "inicio"
             st.rerun()
             
-        col1, col2 = st.columns([1,10])
+# MÓDULO DEMORAS OPERATIVAS
 
-        with col1:
-            if st.button("← Volver al inicio"):
-                st.session_state["pagina"] = "inicio"
-                st.rerun()
-    
-    # INCIDENCIA
-    elif st.session_state.subvehiculos == "incidencia":
-
-        st.markdown("### ⚠️ Reporte de incidencia")
-
-        placa = st.text_input("Placa")
-        descripcion = st.text_area("Descripción")
-        fecha = st.date_input("Fecha")
-
-        if st.button("Enviar"):
-            st.success("Incidencia registrada")
-            st.rerun()
-
-        col1, col2 = st.columns([1,10])
-
-        with col1:
-            if st.button("← Volver al inicio"):
-                st.session_state["pagina"] = "inicio"
-                st.reru
-
-# ===== MODULO DEMORAS =====
 elif st.session_state.pagina == "demoras":
 
-    st.markdown("## ⏱️ Demoras operativas")
+    st.subheader("Demoras operativas")
 
     st.markdown("Reporta problemas por clima, huaicos u otros eventos")
 
     st.link_button(
-        "Ir al formulario",
-        "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
+        "Ir al formulario de demoras",
+        "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing"
     )
 
     col1, col2 = st.columns([1,10])
-
+    
     with col1:
-        if st.button("← Volver al inicio"):
-            st.session_state["pagina"] = "inicio"
-            st.reru
+        if st.button("← Volver", help="Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
 
-# ===== MODULO APARTADOS =====
+# MÓDULO APARTADOS
+
 elif st.session_state.pagina == "apartados":
-
-    st.markdown("## 📦 Apartados postales")
+    st.subheader("Apartados postales")
     st.write("Módulo en construcción")
 
     col1, col2 = st.columns([1,10])
-
+    
     with col1:
-        if st.button("← Volver al inicio"):
-            st.session_state["pagina"] = "inicio"
-            st.reru
+        if st.button("← Volver", help="Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
+# MÓDULO NO DISTRIBUIBLES
 
-# ===== MODULO NO DISTRIBUIBLES =====
 elif st.session_state.pagina == "nodist":
-
-    st.markdown("## ⚠️ No distribuibles")
+    st.subheader("No distribuibles")
     st.write("Módulo en construcción")
-
+    
     col1, col2 = st.columns([1,10])
-
+    
     with col1:
-        if st.button("← Volver al inicio"):
-            st.session_state["pagina"] = "inicio"
-            st.reru
+        if st.button("← Volver", help="Volver"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
