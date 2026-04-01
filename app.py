@@ -241,7 +241,6 @@ elif st.session_state.pagina == "demoras":
         "Ir al formulario",
         "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
     )
-    st.rerun()
 
     st.divider()
 
