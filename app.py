@@ -112,8 +112,8 @@ def login(usuario, password):
 
 # ===== SESSION STATE ===== #
 
-if "pagina" not in st.session_state:
-    st.session_state.pagina = "inicio"
+if "pagina" in st.query_params:
+    st.session_state.pagina = st.query_params["pagina"][0]
 
 if "pagina" in st.query_params:
     st.session_state.pagina = st.query_params["pagina"]
