@@ -91,7 +91,7 @@ div.stButton:nth-of-type(4) > button {
     box-shadow: inset 0 0 0 1px rgba(51,65,85,0.4);
 }
 
-.volver-btn button {
+div.volver-btn button {
     background-color: transparent !important;
     color: #94a3b8 !important;
     border: none !important;
