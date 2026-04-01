@@ -57,7 +57,7 @@ display:flex;
 align-items:center;
 ">
 
-<https://www.gob.pe/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NzAwNTUsInB1ciI6ImJsb2JfaWQifX0=--4bda1838953588d6e795cc74c88eb210cad66ef5/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fbGltaXQiOltudWxsLDQ4XX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--830247c4bafe7cadca50817d8559bf1a09e3aa28/logo_serpost_2.png" 
+<"https://webservice.serpost.com.pe/OPVClient/assets/img/serpost-logo.png" 
 style="height:40px;">
 
 </div>
