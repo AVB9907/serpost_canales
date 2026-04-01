@@ -69,10 +69,13 @@ div.stButton > button {
     padding: 20px;
 }
 
-/* fallback targeting by key */
-button[kind="secondary"]:has(span:contains("Volver")) {
+/* ===== OVERRIDE ONLY VOLVER BUTTON SIZE ===== */
+button[data-testid="baseButton-secondary"][id*="volver_btn"] {
     height: 60px !important;
-    width: 180px !important;
+    width: 200px !important;
+    padding: 10px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
 }
 
 /* ===== HOVER EFFECT (FIXED) ===== */
