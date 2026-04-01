@@ -120,25 +120,25 @@ if st.session_state.pagina == "inicio":
 
     col1, col2, col3, col4 = st.columns(4)
 
-with col1:
-    if st.button("Gestión de vehículos", use_container_width=True):
-        st.session_state.pagina = "vehiculos"
-        st.rerun()
+    with col1:
+        if st.button("Gestión de vehículos", use_container_width=True):
+            st.session_state.pagina = "vehiculos"
+            st.rerun()
 
-with col2:
-    if st.button("Reportar demoras", use_container_width=True):
-        st.session_state.pagina = "demoras"
-        st.rerun()
+    with col2:
+        if st.button("Reportar demoras", use_container_width=True):
+            st.session_state.pagina = "demoras"
+            st.rerun()
 
-with col3:
-    if st.button("Apartados postales", use_container_width=True):
-        st.session_state.pagina = "apartados"
-        st.rerun()
+    with col3:
+        if st.button("Apartados postales", use_container_width=True):
+            st.session_state.pagina = "apartados"
+            st.rerun()
 
-with col4:
-    if st.button("No distribuibles", use_container_width=True):
-        st.session_state.pagina = "nodist"
-        st.rerun()
+    with col4:
+        if st.button("No distribuibles", use_container_width=True):
+            st.session_state.pagina = "nodist"
+            st.rerun()
 
 # MÓDULO VEHICULOS
 
