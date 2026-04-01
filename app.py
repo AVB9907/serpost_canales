@@ -246,33 +246,66 @@ elif st.session_state.pagina == "nodist":
         st.session_state.pagina = "inicio"
         st.rerun()
     
-# MÓDULO VEHICULOS
-
+# ===== MÓDULO VEHICULOS =====
 elif st.session_state.pagina == "vehiculos":
+
+    # Crear subestado si no existe
+    if "subpagina_vehiculos" not in st.session_state:
+        st.session_state.subpagina_vehiculos = "menu"
 
     st.markdown("## 🚚 Módulo Vehículos")
 
-    st.markdown("Seleccione una opción:")
+    # ===== MENU PRINCIPAL =====
+    if st.session_state.subpagina_vehiculos == "menu":
 
-    col1, col2 = st.columns(2)
+        st.markdown("Seleccione una opción:")
 
-    # ===== REGISTRAR VEHÍCULO =====
-    with col1:
-        if st.button("Registrar vehículo", use_container_width=True):
-            st.session_state.pagina = "registro_vehiculo"
-            st.rerun()
+        col1, col2 = st.columns(2)
 
-    # ===== REPORTAR INCIDENCIA =====
-    with col2:
-        if st.button("Reportar incidencia", use_container_width=True):
-            st.session_state.pagina = "incidencia"
-            st.rerun()
+        with col1:
+            if st.button("Registrar vehículo", use_container_width=True):
+                st.session_state.subpagina_vehiculos = "registro"
+
+        with col2:
+            if st.button("Reportar incidencia", use_container_width=True):
+                st.session_state.subpagina_vehiculos = "incidencia"
+
+    # ===== REGISTRO =====
+    elif st.session_state.subpagina_vehiculos == "registro":
+
+        st.markdown("### 📝 Registro de vehículo")
+
+        placa = st.text_input("Placa")
+        tipo = st.selectbox("Tipo de vehículo", ["Camión", "Van", "Auto"])
+        capacidad = st.number_input("Capacidad (kg)", min_value=0)
+
+        if st.button("Guardar"):
+            st.success("Vehículo registrado")
+
+        if st.button("← Volver"):
+            st.session_state.subpagina_vehiculos = "menu"
+
+    # ===== INCIDENCIA =====
+    elif st.session_state.subpagina_vehiculos == "incidencia":
+
+        st.markdown("### ⚠️ Reporte de incidencia")
+
+        placa = st.text_input("Placa del vehículo")
+        descripcion = st.text_area("Descripción del problema")
+        fecha = st.date_input("Fecha")
+
+        if st.button("Enviar reporte"):
+            st.success("Incidencia registrada")
+
+        if st.button("← Volver"):
+            st.session_state.subpagina_vehiculos = "menu"
 
     st.divider()
 
-    # ===== BOTÓN VOLVER =====
-    if st.button("← Volver"):
+    # ===== VOLVER AL INICIO =====
+    if st.button("← Volver al inicio"):
         st.session_state.pagina = "inicio"
+        st.session_state.subpagina_vehiculos = "menu"
         st.rerun()
         
 # MÓDULO DEMORAS OPERATIVAS
