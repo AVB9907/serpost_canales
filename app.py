@@ -188,15 +188,10 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Vehículo registrado")
             st.rerun()
             
-        st.divider()
-
-        col1, col2, col3 = st.columns([1, 2, 1])  # center it
+        if st.button("← Volver", key="volver-btn"):
+            st.session_state.pagina = "inicio"
+            st.rerun()
     
-        with col2:
-            if st.button("← Volver al inicio"):
-                st.session_state["pagina"] = "inicio"
-                st.rerun()
-
     # INCIDENCIA
     elif st.session_state.subvehiculos == "incidencia":
 
