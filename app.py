@@ -112,13 +112,13 @@ def login(usuario, password):
 
 # SESSION STATE
 
-# Default page
-if "pagina" not in st.session_state:
-    st.session_state.pagina = "inicio"
-
-# Sync with URL (only if exists)
-if "pagina" in st.query_params:
-    st.session_state.pagina = st.query_params["pagina"]
+    # Default page
+    if "pagina" not in st.session_state:
+        st.session_state.pagina = "inicio"
+    
+    # Sync with URL (only if exists)
+    if "pagina" in st.query_params:
+        st.session_state.pagina = st.query_params["pagina"]
 
 col1, col2, col3, col4 = st.columns(4)
 
