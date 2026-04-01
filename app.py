@@ -59,11 +59,7 @@ align-items:center;
 ">
 
 <div style="color:white; font-size:20px; font-weight:600;">
-Sistema Logístico - SERPOST
-</div>
-
-<div style="color:white; font-size:14px;">
-Operaciones
+SERPOST
 </div>
 
 </div>
