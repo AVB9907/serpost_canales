@@ -118,7 +118,7 @@ if st.session_state.pagina == "inicio":
     
         st.markdown("""
         <div class="card">
-            <div class="card-icon">🚚</div>
+            <div class="card-icon">1</div>
             <div class="card-title">Gestión de vehículos</div>
             <div class="card-sub">Registro y control de la flota vehicular</div>
         </div>
@@ -132,7 +132,7 @@ if st.session_state.pagina == "inicio":
     
         st.markdown("""
         <div class="card">
-            <div class="card-icon">⚠️</div>
+            <div class="card-icon">2</div>
             <div class="card-title">Reportar demoras</div>
             <div class="card-sub">Incidencias operativas por factores externos</div>
         </div>
@@ -146,7 +146,7 @@ if st.session_state.pagina == "inicio":
     
         st.markdown("""
         <div class="card">
-            <div class="card-icon">📬</div>
+            <div class="card-icon">3</div>
             <div class="card-title">Apartados postales</div>
             <div class="card-sub">Gestión de apartados por administración</div>
         </div>
@@ -160,7 +160,7 @@ if st.session_state.pagina == "inicio":
     
         st.markdown("""
         <div class="card">
-            <div class="card-icon">📦</div>
+            <div class="card-icon">4</div>
             <div class="card-title">No distribuibles</div>
             <div class="card-sub">Reporte de envíos no distribuibles</div>
         </div>
