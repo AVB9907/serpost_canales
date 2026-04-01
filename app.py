@@ -50,21 +50,18 @@ div.stButton > button:hover {
 st.markdown("""
 <div style="
 background-color:#1f4e79;
-padding:15px 30px;
+padding:12px 25px;
 border-radius:10px;
 margin-bottom:30px;
 display:flex;
-justify-content:space-between;
 align-items:center;
 ">
 
-<div style="color:white; font-size:20px; font-weight:600;">
-SERPOST
-</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Serpost_logo.png" 
+style="height:40px;">
 
 </div>
 """, unsafe_allow_html=True)
-
 st.markdown("""
 <style>
 
