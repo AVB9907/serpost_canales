@@ -66,7 +66,7 @@ div.stButton {
 }
 
 div.stButton > button {
-    height: 180px;
+    height: 80px;
     width: 100%;
 
     background: rgba(255,255,255,0.95);
