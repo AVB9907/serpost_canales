@@ -21,7 +21,6 @@ st.markdown("""
     z-index: 1;
 }
 
-
 /* ===== TITULOS ===== */
 .titulo {
     font-size: 42px !important;
@@ -80,7 +79,6 @@ div.stButton > button {
     justify-content: center;
     text-align: center;
 }
-
 
 /* ===== REMOVE STREAMLIT DEFAULT FOCUS BORDER ===== */
 div.stButton > button:focus {
@@ -189,15 +187,15 @@ elif st.session_state.pagina == "vehiculos":
         if st.button("Guardar"):
             st.success("Vehículo registrado")
             st.rerun()
+            
+        st.divider()
 
-        with st.container():
-            st.markdown('<div class="volver-container">', unsafe_allow_html=True)
-
+        col1, col2, col3 = st.columns([1, 2, 1])  # center it
+    
+        with col2:
             if st.button("← Volver al inicio"):
                 st.session_state["pagina"] = "inicio"
                 st.rerun()
-
-            st.markdown('</div>', unsafe_allow_html=True)
 
     # INCIDENCIA
     elif st.session_state.subvehiculos == "incidencia":
@@ -216,13 +214,14 @@ elif st.session_state.pagina == "vehiculos":
             st.session_state.subvehiculos = "menu"
             st.rerun()
 
-    st.divider()
-
-    if st.button("← Volver", key="volver_btn"):
-        st.session_state.pagina = "inicio"
-        st.session_state.subvehiculos = "menu"
-        st.rerun()
-
+        st.divider()
+    
+        col1, col2, col3 = st.columns([1, 2, 1])  # center it
+    
+        with col2:
+            if st.button("← Volver al inicio"):
+                st.session_state["pagina"] = "inicio"
+                st.rerun()
 
 # ===== MODULO DEMORAS =====
 elif st.session_state.pagina == "demoras":
@@ -237,11 +236,13 @@ elif st.session_state.pagina == "demoras":
     )
 
     st.divider()
-
-    if st.button("← Volver", key="volver_btn"):
-        st.session_state.pagina = "inicio"
-        st.rerun()
-
+    
+    col1, col2, col3 = st.columns([1, 2, 1])  # center it
+    
+    with col2:
+        if st.button("← Volver al inicio"):
+            st.session_state["pagina"] = "inicio"
+            st.rerun()
 
 # ===== MODULO APARTADOS =====
 elif st.session_state.pagina == "apartados":
@@ -250,11 +251,13 @@ elif st.session_state.pagina == "apartados":
     st.write("Módulo en construcción")
 
     st.divider()
-
-    if st.button("← Volver", key="volver_btn"):
-        st.session_state.pagina = "inicio"
-        st.rerun()
-
+    
+    col1, col2, col3 = st.columns([1, 2, 1])  # center it
+    
+    with col2:
+        if st.button("← Volver al inicio"):
+            st.session_state["pagina"] = "inicio"
+            st.rerun()
 
 # ===== MODULO NO DISTRIBUIBLES =====
 elif st.session_state.pagina == "nodist":
@@ -263,7 +266,10 @@ elif st.session_state.pagina == "nodist":
     st.write("Módulo en construcción")
 
     st.divider()
-
-    if st.button("← Volver", key="volver_btn"):
-        st.session_state.pagina = "inicio"
-        st.rerun()
+    
+    col1, col2, col3 = st.columns([1, 2, 1])  # center it
+    
+    with col2:
+        if st.button("← Volver al inicio"):
+            st.session_state["pagina"] = "inicio"
+            st.rerun()
