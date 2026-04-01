@@ -39,6 +39,10 @@ st.markdown("""
     margin-bottom: 30px !important;
 }
 
+/* ===== MARKDOWN ===== */
+h1, h2, h3, h4, h5, h6, p {
+    color: #ffffff !important;
+}
 
 /* ===== BUTTON AS CARD ===== */
 div.stButton {
@@ -65,6 +69,13 @@ div.stButton > button {
     padding: 20px;
 }
 
+/* ===== SMALL VOLVER BUTTON ===== */
+div.stButton button[kind="secondary"][data-testid="baseButton-secondary"][id*="volver_btn"] {
+    height: 60px !important;
+    width: 180px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+}
 
 /* ===== HOVER EFFECT (FIXED) ===== */
 div.stButton > button:hover {
@@ -190,7 +201,7 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Vehículo registrado")
             st.rerun()
 
-        if st.button("← Volver"):
+        if st.button("← Volver", key="volver_btn")
             st.session_state.subvehiculos = "menu"
             st.rerun()
 
@@ -207,13 +218,13 @@ elif st.session_state.pagina == "vehiculos":
             st.success("Incidencia registrada")
             st.rerun()
 
-        if st.button("← Volver"):
+        if st.button("← Volver", key="volver_btn")
             st.session_state.subvehiculos = "menu"
             st.rerun()
 
     st.divider()
 
-    if st.button("← Volver al inicio"):
+    if st.button("← Volver", key="volver_btn")
         st.session_state.pagina = "inicio"
         st.session_state.subvehiculos = "menu"
         st.rerun()
@@ -234,7 +245,7 @@ elif st.session_state.pagina == "demoras":
 
     st.divider()
 
-    if st.button("← Volver al inicio"):
+    if st.button("← Volver", key="volver_btn")
         st.session_state.pagina = "inicio"
         st.rerun()
 
@@ -247,7 +258,7 @@ elif st.session_state.pagina == "apartados":
 
     st.divider()
 
-    if st.button("← Volver al inicio"):
+    if st.button("← Volver", key="volver_btn")
         st.session_state.pagina = "inicio"
         st.rerun()
 
