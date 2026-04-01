@@ -246,7 +246,7 @@ elif st.session_state.pagina == "nodist":
         st.session_state.pagina = "inicio"
         st.rerun()
     
-# ===== MÓDULO VEHICULOS =====
+# MÓDULO VEHICULOS
 elif st.session_state.pagina == "vehiculos":
 
     # Crear subestado si no existe
@@ -308,11 +308,10 @@ elif st.session_state.pagina == "vehiculos":
         st.session_state.subpagina_vehiculos = "menu"
         st.rerun()
         
-# MÓDULO DEMORAS OPERATIVAS
-
+# MÓDULO DEMORAS
 elif st.session_state.pagina == "demoras":
 
-    st.subheader("Demoras operativas")
+    st.markdown("## ⏱️ Demoras operativas")
 
     st.markdown("Reporta problemas por clima, huaicos u otros eventos")
 
@@ -321,34 +320,34 @@ elif st.session_state.pagina == "demoras":
         "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing"
     )
 
-    col1, col2 = st.columns([1,10])
-    
-    with col1:
-        if st.button("← Volver", help="Volver"):
-            st.session_state.pagina = "inicio"
-            st.rerun()
+    st.divider()
 
-# MÓDULO APARTADOS
-
+    if st.button("← Volver al inicio"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
+# MÓDULO APARTADOS 
 elif st.session_state.pagina == "apartados":
-    st.subheader("Apartados postales")
+
+    st.markdown("## 📦 Apartados postales")
+
     st.write("Módulo en construcción")
 
-    col1, col2 = st.columns([1,10])
-    
-    with col1:
-        if st.button("← Volver", help="Volver"):
-            st.session_state.pagina = "inicio"
-            st.rerun()
+    st.divider()
+
+    if st.button("← Volver al inicio"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
+
+
 # MÓDULO NO DISTRIBUIBLES
-
 elif st.session_state.pagina == "nodist":
-    st.subheader("No distribuibles")
+
+    st.markdown("## ⚠️ No distribuibles")
+
     st.write("Módulo en construcción")
-    
-    col1, col2 = st.columns([1,10])
-    
-    with col1:
-        if st.button("← Volver", help="Volver"):
-            st.session_state.pagina = "inicio"
-            st.rerun()
+
+    st.divider()
+
+    if st.button("← Volver al inicio"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
