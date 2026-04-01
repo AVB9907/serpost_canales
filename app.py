@@ -39,6 +39,22 @@ st.markdown("""
     margin-bottom: 30px !important;
 }
 
+/* ===== SMALL VOLVER BUTTON (ONLY THIS ONE) ===== */
+.volver-container div.stButton > button {
+    height: 60px !important;
+    width: 220px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+    padding: 10px !important;
+}
+
+/* Center it nicely */
+.volver-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 /* ===== MARKDOWN ===== */
 h1, h2, h3, h4, h5, h6, p {
     color: #ffffff !important;
@@ -67,22 +83,6 @@ div.stButton > button {
     white-space: pre-line;
 
     padding: 20px;
-}
-
-/* ===== SMALL VOLVER BUTTON (ONLY THIS ONE) ===== */
-.volver-container div.stButton > button {
-    height: 60px !important;
-    width: 220px !important;
-    font-size: 14px !important;
-    border-radius: 12px !important;
-    padding: 10px !important;
-}
-
-/* Center it nicely */
-.volver-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
 }
 
 /* ===== HOVER EFFECT (FIXED) ===== */
