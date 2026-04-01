@@ -53,7 +53,7 @@ h2 {
 
 /* TEXTOS EN GENERAL */
 p {
-    color: #f0f0f0 !important;
+    color: #000000 !important;
     font-size: 14px;
 }
 
@@ -72,7 +72,7 @@ div.stButton > button {
     font-weight: 600;
 
     border: 1px solid #e5e7eb; 
-    background-color: transparent !important;   
+    background-color: white !important;   
 
     transition: all 0.25s ease;
 }
