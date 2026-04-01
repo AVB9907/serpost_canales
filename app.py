@@ -44,7 +44,6 @@ div.stButton > button:hover {
     transform: translateY(-3px);
 }
 
-st.markdown("""
 <div style="
 display:flex;
 align-items:center;
