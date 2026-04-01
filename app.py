@@ -47,7 +47,7 @@ p {
 /* BOTONES GRANDES */
 
 div.stButton > button {
-    width: 90% !important;
+    width: 100% !important;
     height: 140px !important; 
     border-radius: 16px !important;
 
