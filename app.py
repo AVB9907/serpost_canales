@@ -124,6 +124,7 @@ if st.session_state["pagina"] == "inicio":
                  key="vehiculos_btn", 
                  use_container_width=True):
             st.session_state["pagina"] = "vehiculos"
+            st.rerun()
                      
     # ===== DEMORAS =====
     with col2:
