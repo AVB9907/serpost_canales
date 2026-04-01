@@ -132,6 +132,7 @@ if st.session_state["pagina"] == "inicio":
                 key="demoras_btn",
                 use_container_width=True):
             st.session_state["pagina"] = "demoras"
+            st.rerun()
 
     # ===== APARTADOS =====
     with col3:
@@ -139,6 +140,7 @@ if st.session_state["pagina"] == "inicio":
                 key="apartados_btn",
                 use_container_width=True):
             st.session_state["pagina"] = "apartados"
+            st.rerun()
         
     # ===== NO DISTRIBUIBLES =====
     with col4:
@@ -146,13 +148,15 @@ if st.session_state["pagina"] == "inicio":
                 key="nodist_btn",
                 use_container_width=True):
             st.session_state["pagina"] = "nodist"
+            st.rerun()
 
-# ===== VEHICULOS (WITH SUBMENU) =====
+# ===== MODULO VEHICULOS =====
 elif st.session_state.pagina == "vehiculos":
 
     # subestado interno
     if "subvehiculos" not in st.session_state:
         st.session_state.subvehiculos = "menu"
+        st.rerun()
 
     st.markdown("## 🚚 Módulo Vehículos")
 
@@ -166,10 +170,12 @@ elif st.session_state.pagina == "vehiculos":
         with col1:
             if st.button("Registrar vehículo", use_container_width=True):
                 st.session_state.subvehiculos = "registro"
+                st.rerun()
 
         with col2:
             if st.button("Reportar incidencia", use_container_width=True):
                 st.session_state.subvehiculos = "incidencia"
+                st.rerun()
 
     # ===== REGISTRO =====
     elif st.session_state.subvehiculos == "registro":
@@ -182,9 +188,11 @@ elif st.session_state.pagina == "vehiculos":
 
         if st.button("Guardar"):
             st.success("Vehículo registrado")
+            st.rerun()
 
         if st.button("← Volver"):
             st.session_state.subvehiculos = "menu"
+            st.rerun()
 
     # ===== INCIDENCIA =====
     elif st.session_state.subvehiculos == "incidencia":
@@ -197,15 +205,18 @@ elif st.session_state.pagina == "vehiculos":
 
         if st.button("Enviar"):
             st.success("Incidencia registrada")
+            st.rerun()
 
         if st.button("← Volver"):
             st.session_state.subvehiculos = "menu"
+            st.rerun()
 
     st.divider()
 
     if st.button("← Volver al inicio"):
         st.session_state.pagina = "inicio"
         st.session_state.subvehiculos = "menu"
+        st.rerun()
 
 
 # ===== DEMORAS =====
@@ -219,11 +230,13 @@ elif st.session_state.pagina == "demoras":
         "Ir al formulario",
         "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform"
     )
+    st.rerun()
 
     st.divider()
 
     if st.button("← Volver al inicio"):
         st.session_state.pagina = "inicio"
+        st.rerun()
 
 
 # ===== APARTADOS =====
@@ -236,6 +249,7 @@ elif st.session_state.pagina == "apartados":
 
     if st.button("← Volver al inicio"):
         st.session_state.pagina = "inicio"
+        st.rerun()
 
 
 # ===== NO DISTRIBUIBLES =====
@@ -248,3 +262,4 @@ elif st.session_state.pagina == "nodist":
 
     if st.button("← Volver al inicio"):
         st.session_state.pagina = "inicio"
+        st.rerun()
