@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
-/* ===== FONDO ===== */
+/* FONDO */
 [data-testid="stAppViewContainer"] {
     background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
     background-size: cover;
@@ -15,93 +15,55 @@ st.markdown("""
     background-repeat: no-repeat;
 }
 
-/* Make content appear above overlay */
-[data-testid="stAppViewContainer"] > div {
-    position: relative;
-    z-index: 1;
-}
-
-/* ===== TITULOS ===== */
+/* TÍTULO */
 .titulo {
-    font-size: 42px !important;
+    font-size: 40px !important;
     font-weight: 800 !important;
-    color: #ffffff !important;
+    color: #f0f0f0 !important;
     text-align: center !important;
-    margin-bottom: 10px !important;
-    letter-spacing: 1px !important;
-}
-
-.sub {
-    text-align: center !important;
-    color: #dbe6ff !important;
-    font-size: 18px !important;
     margin-bottom: 30px !important;
 }
 
-/* ===== MARKDOWN ===== */
-h1, h2, h3, h4, h5, h6, p {
-    color: #ffffff !important;
+/* SUBTÍTULO */
+.sub {
+    text-align: center;
+    color: #f0f0f0 !important;
+    font-size: 20px !important;
 }
 
-/* ===== BUTTON AS CARD ===== */
-
+/* BOTONES GRANDES */
 div.stButton > button {
-    height: 200px;
-    width: 90%;
-
-    background: rgba(255,255,255,0.95);
-    border-radius: 20px;
-    border: none;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-
-    font-weight: 600;
-    font-size: 16px;
-    color: #2c3e50;
-
-    transition: all 0.25s ease;
-    white-space: pre-line;
-
-    padding: 20px;
-}
-
-/* ===== HOVER EFFECT (FIXED) ===== */
-div.stButton > button:hover {
-    background: rgba(255,255,255,0.95) !important; 
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    }
-
-/* BOTÓN VOLVER ESPECÍFICO */
-div.stButton > button[data-testid="volver-btn"] {
-    background-color: #28a745 !important;
-    color: white !important;
-    font-size: 13px !important;
-    padding: 6px 14px !important;
-    border-radius: 8px !important;
-    border: none !important;
-    width: auto !important;
-    height: auto !important;
-    box-shadow: none !important;
+    height: 140px !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    border-radius: 16px !important;
+    background-color: white !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.08) !important;
+    transition: all 0.2s ease;
 }
 
 /* HOVER */
-div.stButton > button[data-testid="volver-btn"]:hover {
-    background-color: #218838 !important;
+div.stButton > button:hover {
+    background-color: #eef3f8 !important;
+    transform: translateY(-3px);
 }
 
-/* ===== OPTIONAL: CENTER TEXT NICELY ===== */
-div.stButton > button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* COLORES POR MÓDULO */
+div.stButton:nth-of-type(1) > button {
+    border-left: 6px solid #1f77b4 !important;
 }
 
-/* ===== REMOVE STREAMLIT DEFAULT FOCUS BORDER ===== */
-div.stButton > button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.3);
+div.stButton:nth-of-type(2) > button {
+    border-left: 6px solid #dc3545 !important;
+}
+
+div.stButton:nth-of-type(3) > button {
+    border-left: 6px solid #ffc107 !important;
+}
+
+div.stButton:nth-of-type(4) > button {
+    border-left: 6px solid #6c757d !important;
 }
 
 </style>
