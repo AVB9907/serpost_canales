@@ -82,6 +82,10 @@ div.stButton > button {
 .card:nth-child(3) { border-top: 4px solid #ffc107; }
 .card:nth-child(4) { border-top: 4px solid #6c757d; }
 
+.card {
+    pointer-events: none;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
