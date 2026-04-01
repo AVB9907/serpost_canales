@@ -17,7 +17,7 @@ st.markdown("""
     font-weight: 800 !important;
     color: #496991 !important;
     text-align: center !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 30px !important;
 }
 
 .sub {
@@ -52,7 +52,7 @@ st.markdown("""
 background-color:#1f4e79;
 padding:12px 25px;
 border-radius:8px;
-margin-bottom:10px;
+margin-bottom:30px;
 display:flex;
 align-items:center;
 ">
