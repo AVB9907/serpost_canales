@@ -11,12 +11,10 @@ st.markdown("""
 
 /* FONDO */
 [data-testid="stAppViewContainer"] {
-    background: linear-gradient(rgba(5, 15, 35, 0.9), rgba(5, 15, 35, 0.95)),
-                url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
+    background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 /* TÍTULO */
