@@ -72,6 +72,24 @@ div.stButton > button:hover {
     box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
 
+/* BOTÓN VOLVER ESPECÍFICO */
+div.stButton > button[data-testid="volver-btn"] {
+    background-color: #28a745 !important;
+    color: white !important;
+    font-size: 13px !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+/* HOVER */
+div.stButton > button[data-testid="volver-btn"]:hover {
+    background-color: #218838 !important;
+}
+
 /* ===== OPTIONAL: CENTER TEXT NICELY ===== */
 div.stButton > button {
     display: flex;
