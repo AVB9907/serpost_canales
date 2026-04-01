@@ -81,20 +81,21 @@ div.stButton > button {
 }
 
 /* BUTTON LAYER (CLICKABLE) */
-div.stButton {
-    position: relative;
+div.stButton > button {
+    height: 180px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+    transition: all 0.25s ease;
+    white-space: pre-line; /* IMPORTANT for line breaks */
 }
 
-div.stButton > button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    opacity: 0;           /* invisible */
-    z-index: 2;           /* above card */
-    cursor: pointer;
+div.stButton > button:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
 }
 
 /* CARD */
@@ -135,17 +136,11 @@ if st.session_state["pagina"] == "inicio":
 
     # ===== VEHICULOS =====
     with col1:
-        if st.button(" ", key="vehiculos_btn", use_container_width=True):
-            st.session_state["pagina"] = "vehiculos"
-
-        st.markdown("""
-        <div class="card">
-            <div class="card-icon">🚚</div>
-            <div class="card-title">Gestión de vehículos</div>
-            <div class="card-sub">Registro y control de la flota</div>
-        </div>
-        """, unsafe_allow_html=True)
-
+    if st.button("🚚\n\nGestión de vehículos\nRegistro y control de la flota", 
+                 key="vehiculos_btn", 
+                 use_container_width=True):
+        st.session_state["pagina"] = "vehiculos"
+                     
     # ===== DEMORAS =====
     with col2:
         if st.button(" ", key="demoras_btn", use_container_width=True):
