@@ -8,6 +8,19 @@ st.set_page_config(layout="wide")
 
 st.markdown("""
 <style>
+div.volver-btn button {
+    background-color: transparent !important;
+    color: #94a3b8 !important;
+    border: none !important;
+    font-size: 14px !important;
+    padding: 6px 8px !important;
+}
+
+/* Hover */
+.volver-btn button:hover {
+    color: #0ea5e9 !important;
+    background-color: rgba(14,165,233,0.1) !important;
+}
 
 /* FONDO */
 [data-testid="stAppViewContainer"] {
@@ -42,20 +55,6 @@ h2 {
 p {
     color: #f0f0f0 !important;
     font-size: 14px;
-}
-
-div.volver-btn button {
-    background-color: transparent !important;
-    color: #94a3b8 !important;
-    border: none !important;
-    font-size: 14px !important;
-    padding: 6px 8px !important;
-}
-
-/* Hover */
-.volver-btn button:hover {
-    color: #0ea5e9 !important;
-    background-color: rgba(14,165,233,0.1) !important;
 }
 
 /* BOTONES GRANDES */
