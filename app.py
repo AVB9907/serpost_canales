@@ -9,11 +9,6 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
-
-h2 {
-    color: #f0f0f0 !important;
-}
-
 /* FONDO */
 [data-testid="stAppViewContainer"] {
     background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
@@ -36,6 +31,17 @@ h2 {
     text-align: center;
     color: #f0f0f0 !important;
     font-size: 20px !important;
+}
+
+/* TÍTULOS DENTRO DE LOS MÓDULOS */
+h2 {
+    color: #f0f0f0 !important;
+}
+
+/* TEXTOS EN GENERAL */
+p {
+    color: #f0f0f0 !important;
+    font-size: 14px;
 }
 
 /* BOTONES GRANDES */
@@ -158,7 +164,7 @@ elif st.session_state.pagina == "vehiculos":
 
 elif st.session_state.pagina == "demoras":
 
-    st.subheader("Demoras operativas")
+    st.markdown("## Demoras Operativas")
 
     st.markdown("Reporta problemas por clima, huaicos u otros eventos")
 
@@ -177,7 +183,7 @@ elif st.session_state.pagina == "demoras":
 # MÓDULO APARTADOS
 
 elif st.session_state.pagina == "apartados":
-    st.subheader("Apartados postales")
+    st.markdown("## Apartados Postales")
     st.write("Módulo en construcción")
 
     col1, col2 = st.columns([1,10])
@@ -189,7 +195,7 @@ elif st.session_state.pagina == "apartados":
 # MÓDULO NO DISTRIBUIBLES
 
 elif st.session_state.pagina == "nodist":
-    st.subheader("No distribuibles")
+    st.markdown("## Envíos no distribuibles")
     st.write("Módulo en construcción")
     
     col1, col2 = st.columns([1,10])
