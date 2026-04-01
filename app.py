@@ -109,28 +109,64 @@ if "pagina" not in st.session_state:
     
 # ===== MAIN NAVIGATION ===== #
 
-if st.session_state.pagina == "inicio":
+if st.session_state["pagina"] == "inicio":
 
-    st.markdown("## Inicio")
+    st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
 
     col1, col2, col3, col4 = st.columns(4)
 
+    # ===== VEHICULOS =====
     with col1:
-        if st.button("Vehículos"):
-            st.session_state.pagina = "vehiculos"
+        if st.button(" ", key="vehiculos_btn", use_container_width=True):
+            st.session_state["pagina"] = "vehiculos"
 
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">🚚</div>
+            <div class="card-title">Gestión de vehículos</div>
+            <div class="card-sub">Registro y control de la flota</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ===== DEMORAS =====
     with col2:
-        if st.button("Demoras"):
-            st.session_state.pagina = "demoras"
+        if st.button(" ", key="demoras_btn", use_container_width=True):
+            st.session_state["pagina"] = "demoras"
 
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">⏱️</div>
+            <div class="card-title">Demoras operativas</div>
+            <div class="card-sub">Incidencias externas</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ===== APARTADOS =====
     with col3:
-        if st.button("Apartados"):
-            st.session_state.pagina = "apartados"
+        if st.button(" ", key="apartados_btn", use_container_width=True):
+            st.session_state["pagina"] = "apartados"
 
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">📦</div>
+            <div class="card-title">Apartados</div>
+            <div class="card-sub">Gestión de apartados</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ===== NO DISTRIBUIBLES =====
     with col4:
-        if st.button("No distribuibles"):
-            st.session_state.pagina = "nodist"
+        if st.button(" ", key="nodist_btn", use_container_width=True):
+            st.session_state["pagina"] = "nodist"
 
+        st.markdown("""
+        <div class="card">
+            <div class="card-icon">⚠️</div>
+            <div class="card-title">No distribuibles</div>
+            <div class="card-sub">Envíos no entregados</div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ===== VEHICULOS (WITH SUBMENU) =====
 elif st.session_state.pagina == "vehiculos":
