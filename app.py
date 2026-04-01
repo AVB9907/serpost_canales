@@ -50,7 +50,7 @@ div.stButton > button:hover {
 st.markdown("""
 <div style="
 background-color:#1f4e79;
-padding:12px 25px;
+padding:8px 25px;
 border-radius:5px;
 margin-bottom:30px;
 display:flex;
@@ -58,7 +58,7 @@ align-items:center;
 ">
 
 <img src="https://webservice.serpost.com.pe/OPVClient/assets/img/serpost-logo.png" 
-style="height:35px;">
+style="height:40px;">
 
 </div>
 """, unsafe_allow_html=True)
