@@ -50,7 +50,7 @@ div.stButton > button:hover {
 st.markdown("""
 <div style="
 background-color:#1f4e79;
-padding:8px 25px;
+padding:3px 25px;
 border-radius:5px;
 margin-bottom:30px;
 display:flex;
