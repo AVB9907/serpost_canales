@@ -58,8 +58,8 @@ div.stButton > button {
     font-size: 18px !important;
     font-weight: 600;
 
-    border: 1px solid #f2f2f2 !important;
-    background-color: white !important;
+    border: 1px solid #f2f2f2;
+    background-color: white;
 
     transition: all 0.25s ease;
 }
@@ -72,7 +72,7 @@ div.stButton > button:hover {
 
 /*MODULOS*/
 div.stButton:nth-of-type(1) > button {
-    box-shadow: 0 0 0 2px rgba(31,119,180,0.15);
+    box-shadow: 0 4px 14px rgba(31,119,180,0.15);
 }
 
 div.stButton:nth-of-type(2) > button {
