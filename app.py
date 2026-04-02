@@ -13,20 +13,6 @@ if "user" not in st.session_state:
 
 st.markdown("""
 
-<style>
-div.volver-btn button {
-    background-color: white !important;
-    color: #f0f0f0 !important;
-    border: none !important;
-    font-size: 14px !important;
-    padding: 6px 8px !important;
-}
-
-.volver-btn button:hover {
-    color: #f0f0f0 !important;
-    background-color: rgba(14,165,233,0.1) !important;
-}
-
 [data-testid="stAppViewContainer"] {
     background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
     background-size: cover;
@@ -171,67 +157,84 @@ else:
 # MODULOS
 
     elif st.session_state.pagina == "vehiculos":
-    
+        
         st.markdown("## Módulo Vehículos")
-    
+        
         col1, col2 = st.columns(2)
-    
+        
         with col1:
-            if st.button("Registrar vehículo"):
+            if st.button("Registrar vehículo", use_container_width=True):
                 st.session_state.pagina = "registro"
                 st.rerun()
-    
+        
         with col2:
-            if st.button("Reportar incidencia"):
+            if st.button("Reportar incidencia", use_container_width=True):
                 st.session_state.pagina = "incidencia"
                 st.rerun()
-    
-        col_btn, _ = st.columns([1,5])
-
-        with col_btn:
-            if st.button("Registrar vehículo"):
-                st.session_state.pagina = "registro"
+        
+        col_volver, _ = st.columns([1,10])
+        
+        with col_volver:
+            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
+        
+            if st.button("← Volver"):
+                st.session_state.pagina = "inicio"
                 st.rerun()
-    
+        
             st.markdown('</div>', unsafe_allow_html=True)
     
-    elif st.session_state.pagina == "demoras":
     
+    elif st.session_state.pagina == "demoras":
+        
         st.markdown("## Demoras Operativas")
         st.markdown("Reporta problemas por clima, huaicos u otros eventos")
-    
+        
         st.link_button(
             "Ir al formulario de demoras",
             "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing"
         )
-    
-        col1, col2 = st.columns([1,10])
-    
-        with col1:
+        
+        col_volver, _ = st.columns([1,10])
+        
+        with col_volver:
+            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
+        
             if st.button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
+        
+            st.markdown('</div>', unsafe_allow_html=True)
+    
     
     elif st.session_state.pagina == "apartados":
-    
+        
         st.markdown("## Apartados Postales")
         st.write("Módulo en construcción")
-    
-        col1, col2 = st.columns([1,10])
-    
-        with col1:
+        
+        col_volver, _ = st.columns([1,10])
+        
+        with col_volver:
+            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
+        
             if st.button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
+        
+            st.markdown('</div>', unsafe_allow_html=True)
+    
     
     elif st.session_state.pagina == "nodist":
-    
+        
         st.markdown("## Envíos no distribuibles")
         st.write("Módulo en construcción")
-    
-        col1, col2 = st.columns([1,10])
-    
-        with col1:
+        
+        col_volver, _ = st.columns([1,10])
+        
+        with col_volver:
+            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
+        
             if st.button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
+        
+            st.markdown('</div>', unsafe_allow_html=True)
