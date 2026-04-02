@@ -130,8 +130,11 @@ if st.session_state.user is None:
         usuario = st.text_input("Usuario")
         password = st.text_input("Contraseña", type="password")
     
-        if st.button("Ingresar", use_container_width=True):
-    
+        col_btn, col_empty = st.columns([1,2])
+
+    with col_btn:
+        if st.button("Ingresar"):
+            
             res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
     
             if len(res.data) > 0:
@@ -144,7 +147,6 @@ if st.session_state.user is None:
                     st.error("Contraseña incorrecta")
             else:
                 st.error("Usuario no existe")
-
 # APP
 
 else:
