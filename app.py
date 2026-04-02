@@ -14,17 +14,12 @@ if "user" not in st.session_state:
 st.markdown("""
 <style>
 
-/* quitar borde del form */
+/* BOTON VOLVER */
+
 div[data-testid="stForm"] {
     border: none !important;
     background: transparent !important;
     padding: 0 !important;
-}
-
-/* opcional: quitar sombra si aparece */
-div[data-testid="stForm"] > div {
-    border: none !important;
-    box-shadow: none !important;
 }
 
 /* Contenedor fijo */
@@ -35,7 +30,6 @@ div[data-testid="stForm"] > div {
     z-index: 9999;
 }
 
-/* Botón estilo personalizado */
 .volver-fixed button {
     background-color: #0ea5e9 !important;  /* 🔵 color */
     color: white !important;
@@ -251,16 +245,16 @@ else:
             "https://docs.google.com/forms/d/e/1FAIpQLSdANPp9EjjhS51Jkg0AP0WHihKGK48OqoV0sfNKKm4U_B8APw/viewform?usp=sharing"
         )
         
-        col_volver, _ = st.columns([1,10])
+        st.markdown('<div class="volver-fixed">', unsafe_allow_html=True)
+
+        with st.form("volver_form", clear_on_submit=False):
+            volver = st.form_submit_button("← Volver")
         
-        with col_volver:
-            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
-        
-            if st.form_submit_button("← Volver"):
+            if volver:
                 st.session_state.pagina = "inicio"
                 st.rerun()
         
-            st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
     
     
     elif st.session_state.pagina == "apartados":
@@ -268,16 +262,16 @@ else:
         st.markdown("## Apartados Postales")
         st.write("Módulo en construcción")
         
-        col_volver, _ = st.columns([1,10])
+        st.markdown('<div class="volver-fixed">', unsafe_allow_html=True)
+
+        with st.form("volver_form", clear_on_submit=False):
+            volver = st.form_submit_button("← Volver")
         
-        with col_volver:
-            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
-        
-            if st.form_submit_button("← Volver"):
+            if volver:
                 st.session_state.pagina = "inicio"
                 st.rerun()
         
-            st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
     
     
     elif st.session_state.pagina == "nodist":
@@ -285,13 +279,13 @@ else:
         st.markdown("## Envíos no distribuibles")
         st.write("Módulo en construcción")
         
-        col_volver, _ = st.columns([1,10])
+        st.markdown('<div class="volver-fixed">', unsafe_allow_html=True)
+
+        with st.form("volver_form", clear_on_submit=False):
+            volver = st.form_submit_button("← Volver")
         
-        with col_volver:
-            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
-        
-            if st.form_submit_button("← Volver"):
+            if volver:
                 st.session_state.pagina = "inicio"
                 st.rerun()
         
-            st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
