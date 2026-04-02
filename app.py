@@ -2,14 +2,17 @@ import streamlit as st
 from datetime import datetime
 from supabase import create_client
 
+# SESSION USER
+
 if "user" not in st.session_state:
-    st.session_state.user = None
+st.session_state.user = None
 
 st.set_page_config(layout="wide")
 
 # CSS
 
 st.markdown("""
+
 <style>
 div.volver-btn button {
     background-color: black !important;
@@ -19,13 +22,11 @@ div.volver-btn button {
     padding: 6px 8px !important;
 }
 
-/* Hover */
 .volver-btn button:hover {
     color: #0ea5e9 !important;
     background-color: rgba(14,165,233,0.1) !important;
 }
 
-/* FONDO */
 [data-testid="stAppViewContainer"] {
     background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
     background-size: cover;
@@ -33,7 +34,6 @@ div.volver-btn button {
     background-repeat: no-repeat;
 }
 
-/* TÍTULO */
 .titulo {
     font-size: 40px !important;
     font-weight: 800 !important;
@@ -42,161 +42,134 @@ div.volver-btn button {
     margin-bottom: 30px !important;
 }
 
-/* SUBTÍTULO */
 .sub {
     text-align: center;
     color: #f0f0f0 !important;
     font-size: 20px !important;
 }
 
-/* TÍTULOS DENTRO DE LOS MÓDULOS */
 h2 {
     color: #f0f0f0 !important;
 }
 
-/* TEXTOS EN GENERAL */
 p {
     color: #3F4D6E !important;
     font-size: 25px;
 }
 
-/* BOTONES GRANDES */
-
 div.stButton > button {
     width: 100% !important;
     height: 140px !important; 
     border-radius: 16px !important;
-
     display: flex !important;
     align-items: center;
     justify-content: center;
-
     font-size: 18px !important;
     font-weight: 600;
-
     border: 1px solid #e5e7eb; 
     background-color: white !important;   
-
     transition: all 0.25s ease;
 }
 
-/*HOVER*/
 div.stButton > button:hover {
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
-/*MODULOS*/
 div.stButton:nth-of-type(1) > button {
     border-top: 5px solid #0ea5e9 !important;
-    box-shadow: inset 0 0 0 1px rgba(14,165,233,0.3);
 }
 
 div.stButton:nth-of-type(2) > button {
     border-top: 5px solid #f43f5e !important;
-    box-shadow: inset 0 0 0 1px rgba(244,63,94,0.3);
 }
 
 div.stButton:nth-of-type(3) > button {
     border-top: 5px solid #facc15 !important;
-    box-shadow: inset 0 0 0 1px rgba(250,204,21,0.4);
 }
 
 div.stButton:nth-of-type(4) > button {
     border-top: 5px solid #334155 !important;
-    box-shadow: inset 0 0 0 1px rgba(51,65,85,0.4);
 }
-
 </style>
+
 """, unsafe_allow_html=True)
 
 # SUPABASE
 
-SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co" 
-SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB" 
-
+SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
+SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # LOGIN
 
 if st.session_state.user is None:
 
-    st.markdown('<p class="titulo">INICIAR SESIÓN</p>', unsafe_allow_html=True)
+```
+st.markdown('<p class="titulo">INICIAR SESIÓN</p>', unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns([1,2,1])
+col1, col2, col3 = st.columns([1,2,1])
 
-    with col2:
-        usuario = st.text_input("Usuario")
-        password = st.text_input("Contraseña", type="password")
+with col2:
+    usuario = st.text_input("Usuario")
+    password = st.text_input("Contraseña", type="password")
 
-        if st.button("Ingresar", use_container_width=True):
+    if st.button("Ingresar", use_container_width=True):
 
-            res = supabase.table("usuarios") \
-                .select("*") \
-                .eq("usuario", usuario) \
-                .execute()
+        res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
 
-            if len(res.data) > 0:
-                user = res.data[0]
+        if len(res.data) > 0:
+            user = res.data[0]
 
-                if user["password"] == password:
-                    st.session_state.user = user
-                    st.rerun()
-                else:
-                    st.error("Contraseña incorrecta")
+            if user["password"] == password:
+                st.session_state.user = user
+                st.rerun()
             else:
-                st.error("Usuario no existe")
+                st.error("Contraseña incorrecta")
+        else:
+            st.error("Usuario no existe")
+```
 
 # APP
+
 else:
 
-    if "pagina" not in st.session_state:
-        st.session_state.pagina = "inicio"
+```
+st.sidebar.write(f"👤 {st.session_state.user['usuario']}")
 
-    if st.session_state.pagina == "inicio":
+if st.sidebar.button("Cerrar sesión"):
+    st.session_state.user = None
+    st.rerun()
 
-        st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
-        st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
+if "pagina" not in st.session_state:
+    st.session_state.pagina = "inicio"
 
-        col1, col2, col3, col4 = st.columns(4)
+if st.session_state.pagina == "inicio":
 
-        with col1:
-            if st.button("Gestión de vehículos", use_container_width=True):
-                st.session_state.pagina = "vehiculos"
-                st.rerun()
+    st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
 
-        with col2:
-            if st.button("Reportar demoras", use_container_width=True):
-                st.session_state.pagina = "demoras"
-                st.rerun()
+    col1, col2, col3, col4 = st.columns(4)
 
-        with col3:
-            if st.button("Apartados postales", use_container_width=True):
-                st.session_state.pagina = "apartados"
-                st.rerun()
+    with col1:
+        if st.button("Gestión de vehículos", use_container_width=True):
+            st.session_state.pagina = "vehiculos"
+            st.rerun()
 
-        with col4:
-            if st.button("No distribuibles", use_container_width=True):
-                st.session_state.pagina = "nodist"
-                st.rerun()
+    with col2:
+        if st.button("Reportar demoras", use_container_width=True):
+            st.session_state.pagina = "demoras"
+            st.rerun()
 
-    elif st.session_state.pagina == "vehiculos":
-        st.markdown("## Módulo Vehículos")
-        ...
+    with col3:
+        if st.button("Apartados postales", use_container_width=True):
+            st.session_state.pagina = "apartados"
+            st.rerun()
 
-    elif st.session_state.pagina == "demoras":
-        st.markdown("## Demoras Operativas")
-        ...
-
-    elif st.session_state.pagina == "apartados":
-        st.markdown("## Apartados Postales")
-        ...
-
-    elif st.session_state.pagina == "nodist":
-        st.markdown("## Envíos no distribuibles")
-        ...
-
-# MÓDULO VEHICULOS
+    with col4:
+        if st.button("No distribuibles", use_container_width=True):
+            st.session_state.pagina = "nodist"
+            st.rerun()
 
 elif st.session_state.pagina == "vehiculos":
 
@@ -215,22 +188,19 @@ elif st.session_state.pagina == "vehiculos":
             st.rerun()
 
     col1, col2 = st.columns([1,10])
-    
+
     with col1:
         st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
 
-        if st.button("← Volver", help="Volver"):
+        if st.button("← Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
 
         st.markdown('</div>', unsafe_allow_html=True)
-    
-# MÓDULO DEMORAS OPERATIVAS
 
 elif st.session_state.pagina == "demoras":
 
     st.markdown("## Demoras Operativas")
-
     st.markdown("Reporta problemas por clima, huaicos u otros eventos")
 
     st.link_button(
@@ -239,33 +209,33 @@ elif st.session_state.pagina == "demoras":
     )
 
     col1, col2 = st.columns([1,10])
-    
+
     with col1:
-        if st.button("← Volver", help="Volver"):
+        if st.button("← Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
 
-# MÓDULO APARTADOS
-
 elif st.session_state.pagina == "apartados":
+
     st.markdown("## Apartados Postales")
     st.write("Módulo en construcción")
 
     col1, col2 = st.columns([1,10])
-    
+
     with col1:
-        if st.button("← Volver", help="Volver"):
+        if st.button("← Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
-# MÓDULO NO DISTRIBUIBLES
 
 elif st.session_state.pagina == "nodist":
+
     st.markdown("## Envíos no distribuibles")
     st.write("Módulo en construcción")
-    
+
     col1, col2 = st.columns([1,10])
-    
+
     with col1:
-        if st.button("← Volver", help="Volver"):
+        if st.button("← Volver"):
             st.session_state.pagina = "inicio"
             st.rerun()
+```
