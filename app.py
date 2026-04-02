@@ -15,15 +15,15 @@ st.markdown("""
 
 <style>
 div.volver-btn button {
-    background-color: black !important;
-    color: #94a3b8 !important;
+    background-color: white !important;
+    color: #f0f0f0 !important;
     border: none !important;
     font-size: 14px !important;
     padding: 6px 8px !important;
 }
 
 .volver-btn button:hover {
-    color: #0ea5e9 !important;
+    color: #f0f0f0 !important;
     background-color: rgba(14,165,233,0.1) !important;
 }
 
