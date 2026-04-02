@@ -204,7 +204,7 @@ else:
         with col_volver:
             st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
         
-            if st.button("← Volver"):
+            if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
         
@@ -226,7 +226,7 @@ else:
         with col_volver:
             st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
         
-            if st.button("← Volver"):
+            if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
         
@@ -243,7 +243,7 @@ else:
         with col_volver:
             st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
         
-            if st.button("← Volver"):
+            if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
         
@@ -260,7 +260,7 @@ else:
         with col_volver:
             st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
         
-            if st.button("← Volver"):
+            if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
         
