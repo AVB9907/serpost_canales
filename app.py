@@ -13,6 +13,14 @@ if "user" not in st.session_state:
 
 st.markdown("""
 
+.login-btn button {
+    width: auto !important;
+    height: auto !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+}
+
 <style>
 div.volver-btn button {
     background-color: black !important;
@@ -130,23 +138,25 @@ if st.session_state.user is None:
         usuario = st.text_input("Usuario")
         password = st.text_input("Contraseña", type="password")
     
-        col_btn, col_empty = st.columns([1,2])
+        st.markdown('<div class="login-btn">', unsafe_allow_html=True)
 
-    with col_btn:
-        if st.button("Ingresar"):
-            
-            res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
+    if st.button("Ingresar"):
+        
+        res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
     
-            if len(res.data) > 0:
-                user = res.data[0]
+        if len(res.data) > 0:
+            user = res.data[0]
     
-                if user["password"] == password:
-                    st.session_state.user = user
-                    st.rerun()
-                else:
-                    st.error("Contraseña incorrecta")
+            if user["password"] == password:
+                st.session_state.user = user
+                st.rerun()
             else:
-                st.error("Usuario no existe")
+                st.error("Contraseña incorrecta")
+        else:
+            st.error("Usuario no existe")
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    
 # APP
 
 else:
