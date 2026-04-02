@@ -13,6 +13,22 @@ if "user" not in st.session_state:
 
 st.markdown("""
 
+<style>
+div.volver-btn button {
+    background-color: black !important;
+    color: #94a3b8 !important;
+    border: none !important;
+    font-size: 14px !important;
+    padding: 6px 8px !important;
+}
+
+/* Hover */
+.volver-btn button:hover {
+    color: #0ea5e9 !important;
+    background-color: rgba(14,165,233,0.1) !important;
+}
+
+/* FONDO */
 [data-testid="stAppViewContainer"] {
     background-image: url("https://webservice.serpost.com.pe/prj_online/Imagen/Seguimiento_Linea.jpg");
     background-size: cover;
@@ -20,6 +36,7 @@ st.markdown("""
     background-repeat: no-repeat;
 }
 
+/* TÍTULO */
 .titulo {
     font-size: 40px !important;
     font-weight: 800 !important;
@@ -28,56 +45,70 @@ st.markdown("""
     margin-bottom: 30px !important;
 }
 
+/* SUBTÍTULO */
 .sub {
     text-align: center;
     color: #f0f0f0 !important;
     font-size: 20px !important;
 }
 
+/* TÍTULOS DENTRO DE LOS MÓDULOS */
 h2 {
     color: #f0f0f0 !important;
 }
 
+/* TEXTOS EN GENERAL */
 p {
     color: #3F4D6E !important;
     font-size: 25px;
 }
 
+/* BOTONES GRANDES */
+
 div.stButton > button {
     width: 100% !important;
     height: 140px !important; 
     border-radius: 16px !important;
+
     display: flex !important;
     align-items: center;
     justify-content: center;
+
     font-size: 18px !important;
     font-weight: 600;
+
     border: 1px solid #e5e7eb; 
     background-color: white !important;   
+
     transition: all 0.25s ease;
 }
 
+/*HOVER*/
 div.stButton > button:hover {
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
+/*MODULOS*/
 div.stButton:nth-of-type(1) > button {
     border-top: 5px solid #0ea5e9 !important;
+    box-shadow: inset 0 0 0 1px rgba(14,165,233,0.3);
 }
 
 div.stButton:nth-of-type(2) > button {
     border-top: 5px solid #f43f5e !important;
+    box-shadow: inset 0 0 0 1px rgba(244,63,94,0.3);
 }
 
 div.stButton:nth-of-type(3) > button {
     border-top: 5px solid #facc15 !important;
+    box-shadow: inset 0 0 0 1px rgba(250,204,21,0.4);
 }
 
 div.stButton:nth-of-type(4) > button {
     border-top: 5px solid #334155 !important;
+    box-shadow: inset 0 0 0 1px rgba(51,65,85,0.4);
 }
-</style>
 
 """, unsafe_allow_html=True)
 
