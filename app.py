@@ -141,7 +141,6 @@ if st.session_state.user is None:
 
                 if user["password"] == password:
                     st.session_state.user = user
-                    st.success("Bienvenida 🔥")
                     st.rerun()
                 else:
                     st.error("Contraseña incorrecta")
@@ -180,6 +179,22 @@ else:
             if st.button("No distribuibles", use_container_width=True):
                 st.session_state.pagina = "nodist"
                 st.rerun()
+
+    elif st.session_state.pagina == "vehiculos":
+        st.markdown("## Módulo Vehículos")
+        ...
+
+    elif st.session_state.pagina == "demoras":
+        st.markdown("## Demoras Operativas")
+        ...
+
+    elif st.session_state.pagina == "apartados":
+        st.markdown("## Apartados Postales")
+        ...
+
+    elif st.session_state.pagina == "nodist":
+        st.markdown("## Envíos no distribuibles")
+        ...
 
 # MÓDULO VEHICULOS
 
