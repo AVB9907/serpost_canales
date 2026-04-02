@@ -13,6 +13,7 @@ if "user" not in st.session_state:
 
 st.markdown("""
 
+<style>
 .login-btn button {
     width: auto !important;
     height: auto !important;
