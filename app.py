@@ -14,15 +14,14 @@ if "user" not in st.session_state:
 st.markdown("""
 
 <style>
-.login-btn button {
+.login-btn div.stButton > button {
     width: auto !important;
     height: auto !important;
-    padding: 10px 20px !important;
+    padding: 10px 25px !important;
     font-size: 16px !important;
     border-radius: 12px !important;
 }
 
-<style>
 div.volver-btn button {
     background-color: black !important;
     color: #94a3b8 !important;
