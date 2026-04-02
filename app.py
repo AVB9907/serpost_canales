@@ -121,7 +121,7 @@ SUPABASE_URL = "https://mloxdzoadanzfkbwbdlw.supabase.co"
 SUPABASE_KEY = "sb_publishable_8oIML4DDkjw4MBFu8Mee2g_2Kw-VLgB"
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# LOGIN
+# INGRESAR
 
 if st.session_state.user is None:
 
@@ -130,26 +130,25 @@ if st.session_state.user is None:
     col1, col2, col3 = st.columns([1,2,1])
     
     with col2:
-        usuario = st.text_input("Usuario")
-        password = st.text_input("Contraseña", type="password")
+        with st.form("login_form"):
+            usuario = st.text_input("Usuario")
+            password = st.text_input("Contraseña", type="password")
 
-    col1, col2, col3 = st.columns([2,1,2])
+            submitted = st.form_submit_button("Ingresar")
 
-    with col2:
-        if st.button("Ingresar", type="secondary", use_container_width=False):
-            
-            res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
+            if submitted:
+                res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
 
-            if len(res.data) > 0:
-                user = res.data[0]
+                if len(res.data) > 0:
+                    user = res.data[0]
 
-                if user["password"] == password:
-                    st.session_state.user = user
-                    st.rerun()
+                    if user["password"] == password:
+                        st.session_state.user = user
+                        st.rerun()
+                    else:
+                        st.error("Contraseña incorrecta")
                 else:
-                    st.error("Contraseña incorrecta")
-            else:
-                st.error("Usuario no existe")
+                    st.error("Usuario no existe")
 # APP
 
 else:
