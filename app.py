@@ -186,13 +186,11 @@ else:
                 st.session_state.pagina = "incidencia"
                 st.rerun()
     
-        col1, col2 = st.columns([1,10])
-    
-        with col1:
-            st.markdown('<div class="volver-btn">', unsafe_allow_html=True)
-    
-            if st.button("← Volver"):
-                st.session_state.pagina = "inicio"
+        col_btn, _ = st.columns([1,5])
+
+        with col_btn:
+            if st.button("Registrar vehículo"):
+                st.session_state.pagina = "registro"
                 st.rerun()
     
             st.markdown('</div>', unsafe_allow_html=True)
