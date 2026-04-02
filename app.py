@@ -105,30 +105,29 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 if st.session_state.user is None:
 
-```
-st.markdown('<p class="titulo">INICIAR SESIÓN</p>', unsafe_allow_html=True)
-
-col1, col2, col3 = st.columns([1,2,1])
-
-with col2:
-    usuario = st.text_input("Usuario")
-    password = st.text_input("Contraseña", type="password")
-
-    if st.button("Ingresar", use_container_width=True):
-
-        res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
-
-        if len(res.data) > 0:
-            user = res.data[0]
-
-            if user["password"] == password:
-                st.session_state.user = user
-                st.rerun()
+    ```
+    st.markdown('<p class="titulo">INICIAR SESIÓN</p>', unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns([1,2,1])
+    
+    with col2:
+        usuario = st.text_input("Usuario")
+        password = st.text_input("Contraseña", type="password")
+    
+        if st.button("Ingresar", use_container_width=True):
+    
+            res = supabase.table("usuarios").select("*").eq("usuario", usuario).execute()
+    
+            if len(res.data) > 0:
+                user = res.data[0]
+    
+                if user["password"] == password:
+                    st.session_state.user = user
+                    st.rerun()
+                else:
+                    st.error("Contraseña incorrecta")
             else:
-                st.error("Contraseña incorrecta")
-        else:
-            st.error("Usuario no existe")
-```
+                st.error("Usuario no existe")
 
 # APP
 
