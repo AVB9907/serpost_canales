@@ -138,7 +138,7 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
 
 /* INDIGO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: #2b2d4280 !important; 
+    background: #2b2d4299 !important; 
 } 
 
 /* LAVENDER GREY */
