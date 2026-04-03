@@ -126,27 +126,6 @@ div.stButton > button:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
-/*MODULOS*/
-div.stButton:nth-of-type(1) > button {
-    border-top: 5px solid #0ea5e9 !important;
-    box-shadow: inset 0 0 0 1px rgba(14,165,233,0.3);
-}
-
-div.stButton:nth-of-type(2) > button {
-    border-top: 5px solid #f43f5e !important;
-    box-shadow: inset 0 0 0 1px rgba(244,63,94,0.3);
-}
-
-div.stButton:nth-of-type(3) > button {
-    border-top: 5px solid #facc15 !important;
-    box-shadow: inset 0 0 0 1px rgba(250,204,21,0.4);
-}
-
-div.stButton:nth-of-type(4) > button {
-    border-top: 5px solid #334155 !important;
-    box-shadow: inset 0 0 0 1px rgba(51,65,85,0.4);
-}
-
 """, unsafe_allow_html=True)
 
 # SUPABASE
