@@ -148,7 +148,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
 
 /* PLATINUM */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
-    background: #edf2f4cc !important;
+    background: #edf2f480 !important;
     color: #2b2d42 !important;
 }
 
