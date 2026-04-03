@@ -260,6 +260,16 @@ else:
     
     if "pagina" not in st.session_state:
         st.session_state.pagina = "inicio"
+
+    ADMINISTRACIONES = [
+        "ABANCAY","AREQUIPA","AYACUCHO","BREÑA","CAJAMARCA","CALLAO",
+        "CERRO DE PASCO","CHACHAPOYAS","CHICLAYO","CHIMBOTE","CHOSICA",
+        "COMAS","CUSCO","HUACHO","HUANCAVELICA","HUANCAYO","HUANUCO",
+        "HUARAZ","ICA","INGENIERIA","IQUITOS","JESUS MARIA","JULIACA",
+        "LA VICTORIA","LIMA","LINCE","MIRAFLORES","MOQUEGUA","PIURA",
+        "PUCALLPA","PUERTO MALDONADO","PUNO","TACNA","TARAPOTO",
+        "TRUJILLO","TUMBES","VMT"
+    ]
     
     if st.session_state.pagina == "inicio":
     
@@ -289,18 +299,8 @@ else:
                 st.rerun()
 
 # MODULOS
-    
-    ADMINISTRACIONES = [
-        "ABANCAY","AREQUIPA","AYACUCHO","BREÑA","CAJAMARCA","CALLAO",
-        "CERRO DE PASCO","CHACHAPOYAS","CHICLAYO","CHIMBOTE","CHOSICA",
-        "COMAS","CUSCO","HUACHO","HUANCAVELICA","HUANCAYO","HUANUCO",
-        "HUARAZ","ICA","INGENIERIA","IQUITOS","JESUS MARIA","JULIACA",
-        "LA VICTORIA","LIMA","LINCE","MIRAFLORES","MOQUEGUA","PIURA",
-        "PUCALLPA","PUERTO MALDONADO","PUNO","TACNA","TARAPOTO",
-        "TRUJILLO","TUMBES","VMT"
-    ]
 
-    elif st.session_state.pagina == "vehiculos":
+        elif st.session_state.pagina == "vehiculos":
         
             st.markdown("## Módulo Vehículos")
         
