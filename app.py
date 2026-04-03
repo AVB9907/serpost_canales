@@ -136,41 +136,37 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
     opacity: 1;
 }
 
-/* INDIGO */
+/* INDIGO GLASS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: linear-gradient(
-        135deg,
-        rgba(43,45,66,0.9),
-        rgba(20,22,35,0.9)
-    ) !important;
+    background: rgba(43,45,66,0.35) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(43,45,66,0.4) !important;
 }
 
-/* LAVENDER GREY */
+/* LAVENDER GLASS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
-    background: linear-gradient(
-        135deg,
-        rgba(141,153,174,0.9),
-        rgba(95,108,133,0.9)
-    ) !important;
+    background: rgba(141,153,174,0.35) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(141,153,174,0.4) !important;
 }
 
-/* PLATINUM */
+/* PLATINUM GLASS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
-    background: linear-gradient(
-        135deg,
-        rgba(237,242,244,0.9),
-        rgba(207,216,220,0.9)
-    ) !important;
+    background: rgba(237,242,244,0.35) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(237,242,244,0.6) !important;
     color: #2b2d42 !important;
 }
 
-/* PUNCH RED */
+/* RED GLASS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
-    background: linear-gradient(
-        135deg,
-        rgba(239,35,60,0.9),
-        rgba(153,20,35,0.9)
-    ) !important;
+    background: rgba(239,35,60,0.35) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(239,35,60,0.5) !important;
 }
 
 """, unsafe_allow_html=True)
