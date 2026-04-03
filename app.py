@@ -120,15 +120,15 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     transition: all 0.25s ease;
 }
 
-/*HOVER*/
+/* HOVER */
 div.stButton > button:hover {
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
-/*CERRAR SESION*/
+/* CERRAR SESION */
 div.stButton:nth-of-type(1) > button {
-    border-top: 5px solid #0ea5e9 !important;
+    background-color: #0ea5e9 !important;   
     box-shadow: inset 0 0 0 1px rgba(14,165,233,0.3);
 }
 
