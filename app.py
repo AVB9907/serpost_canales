@@ -260,6 +260,9 @@ else:
     
     if "pagina" not in st.session_state:
         st.session_state.pagina = "inicio"
+    
+    if "subpagina" not in st.session_state:
+    st.session_state.subpagina = "menu"
 
     ADMINISTRACIONES = [
         "ABANCAY","AREQUIPA","AYACUCHO","BREÑA","CAJAMARCA","CALLAO",
