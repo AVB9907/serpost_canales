@@ -146,8 +146,6 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
         0 10px 30px rgba(0,0,0,0.3);
 }
 
-background: #2b2d42b3 !important;  /* ~70% */
-
 /* LAVENDER GREY PRO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
     background: #8d99aeb3 !important;
