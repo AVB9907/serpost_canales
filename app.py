@@ -42,7 +42,7 @@ div[data-testid="stForm"] {
 
 /* BOTONES DE FORM (LOGIN + VOLVER) */
 div[data-testid="stForm"] button {
-    background-color: #0ea5e9 !important;  /* azul fijo */
+    background-color: transparent !important;
     color: white !important;
     border: none !important;
     border-radius: 10px !important;
@@ -50,9 +50,6 @@ div[data-testid="stForm"] button {
     font-size: 14px !important;
 }
 
-/* HOVER */
-div[data-testid="stForm"] button:hover {
-    background-color: #0284c7 !important;
 }
 
 /* QUITAR EFECTOS DE TEMA */
@@ -97,7 +94,7 @@ p {
     font-size: 25px;
 }
 
-/* 🔥 TARJETAS (reemplazo visual de botones) */
+/* TARJETAS (reemplazo visual de botones) */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
@@ -158,7 +155,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     overflow: hidden;
 }
 
-/* ✨ BRILLO INTERNO */
+/* BRILLO INTERNO */
 div[data-testid="stHorizontalBlock"] div.stButton > button::before {
     content: "";
     position: absolute;
@@ -171,7 +168,7 @@ div[data-testid="stHorizontalBlock"] div.stButton > button::before {
     transition: 0.3s;
 }
 
-/* 🔥 HOVER PRO */
+/* HOVER PRO */
 div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
@@ -181,7 +178,7 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
     opacity: 1;
 }
 
-/* 🎨 COLORES PRO */
+/* COLORES PRO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
     background: linear-gradient(135deg, #10b981, #047857) !important;
 }
@@ -198,7 +195,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
     background: linear-gradient(135deg, #ef4444, #991b1b) !important;
 }
 
-/* 🔥 EFECTO GLOW ABAJO */
+/* EFECTO GLOW ABAJO */
 div[data-testid="stHorizontalBlock"] div.stButton > button::after {
     content: "";
     position: absolute;
