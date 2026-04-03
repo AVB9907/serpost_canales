@@ -136,39 +136,41 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
     opacity: 1;
 }
 
-/* COLORES PRO TRANSPARENTES */
+/* INDIGO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: linear-gradient(135deg, rgba(16,185,129,0.85), rgba(4,120,87,0.85)) !important;
+    background: linear-gradient(
+        135deg,
+        rgba(43,45,66,0.9),
+        rgba(20,22,35,0.9)
+    ) !important;
 }
 
+/* LAVENDER GREY */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
-    background: linear-gradient(135deg, rgba(245,158,11,0.85), rgba(180,83,9,0.85)) !important;
+    background: linear-gradient(
+        135deg,
+        rgba(141,153,174,0.9),
+        rgba(95,108,133,0.9)
+    ) !important;
 }
 
+/* PLATINUM */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
-    background: linear-gradient(135deg, rgba(99,102,241,0.85), rgba(55,48,163,0.85)) !important;
+    background: linear-gradient(
+        135deg,
+        rgba(237,242,244,0.9),
+        rgba(207,216,220,0.9)
+    ) !important;
+    color: #2b2d42 !important;
 }
 
+/* PUNCH RED */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
-    background: linear-gradient(135deg, rgba(239,68,68,0.85), rgba(153,27,27,0.85)) !important;
-}
-
-/* EFECTO GLOW ABAJO */
-div[data-testid="stHorizontalBlock"] div.stButton > button::after {
-    content: "";
-    position: absolute;
-    bottom: 12px;
-    width: 40%;
-    height: 4px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.6);
-    opacity: 0.6;
-}
-
-/* CERRAR SESION */
-div.stButton:nth-of-type(1) > button {
-    background-color: #0ea5e9 !important;   
-    box-shadow: inset 0 0 0 1px rgba(14,165,233,0.3);
+    background: linear-gradient(
+        135deg,
+        rgba(239,35,60,0.9),
+        rgba(153,20,35,0.9)
+    ) !important;
 }
 
 """, unsafe_allow_html=True)
