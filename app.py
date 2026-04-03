@@ -97,35 +97,6 @@ p {
     font-size: 25px;
 }
 
-/* MODULOS */
-
-div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button,
-div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-
-    width: 100% !important;
-    height: 140px !important;
-
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 18px !important;
-    font-weight: 600;
-
-    border: 1px solid #e5e7eb; 
-    background-color: #0ea5e9 !important;   
-
-    transition: all 0.25s ease;
-}
-
-/* HOVER */
-div.stButton > button:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
 /* 🔥 TARJETAS (reemplazo visual de botones) */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button,
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button,
