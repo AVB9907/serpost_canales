@@ -136,10 +136,21 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
     opacity: 1;
 }
 
-/* INDIGO */
+/* INDIGO PRO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: #2b2d42b3 !important; 
-} 
+    background: #2b2d42b3 !important;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.15) !important;
+
+    box-shadow:
+        inset 0 0 20px rgba(43,45,66,0.5),
+        0 10px 30px rgba(0,0,0,0.3);
+}
+
+background: #2b2d42b3 !important;  /* ~70% */
 
 /* LAVENDER GREY */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
