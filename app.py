@@ -271,175 +271,108 @@ else:
         "TRUJILLO","TUMBES","VMT"
     ]
     
-    if st.session_state.pagina == "inicio":
-    
-        st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
-        st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
-    
-        col1, col2, col3, col4 = st.columns(4)
-    
+    elif st.session_state.pagina == "vehiculos":
+
+    # ====================
+    # MENÚ VEHICULOS
+    # ====================
+    if st.session_state.subpagina == "menu":
+
+        st.markdown("## Módulo Vehículos")
+
+        col1, col2 = st.columns(2)
+
         with col1:
-            if st.button("Gestión de vehículos", use_container_width=True):
-                st.session_state.pagina = "vehiculos"
+            if st.button("Registrar vehículo"):
+                st.session_state.subpagina = "registro"
                 st.rerun()
-    
+
         with col2:
-            if st.button("Reportar demoras", use_container_width=True):
-                st.session_state.pagina = "demoras"
-                st.rerun()
-    
-        with col3:
-            if st.button("Apartados postales", use_container_width=True):
-                st.session_state.pagina = "apartados"
-                st.rerun()
-    
-        with col4:
-            if st.button("No distribuibles", use_container_width=True):
-                st.session_state.pagina = "nodist"
+            if st.button("Reportar incidencia"):
+                st.session_state.subpagina = "incidencia"
                 st.rerun()
 
-# MODULOS
+        # volver al inicio
+        with st.form("volver_main"):
+            if st.form_submit_button("← Volver"):
+                st.session_state.pagina = "inicio"
+                st.rerun()
 
-        elif st.session_state.pagina == "vehiculos":
-        
-            st.markdown("## Módulo Vehículos")
-        
-            col1, col2 = st.columns(2)
-        
-            with col1:
-                if st.button("Registrar vehículo", use_container_width=True):
-                    st.session_state.pagina = "registro"
-                    st.rerun()
-        
-            with col2:
-                if st.button("Reportar incidencia", use_container_width=True):
-                    st.session_state.pagina = "incidencia"
-                    st.rerun()
-        
-            st.markdown("### Vehículos registrados")
-        
-            data = supabase.table("vehiculos").select("*").execute()
-        
-            if data.data:
-                st.dataframe(data.data)
-            else:
-                st.info("No hay vehículos registrados")
-        
-            with st.form("volver_vehiculos"):
-                if st.form_submit_button("← Volver"):
-                    st.session_state.pagina = "inicio"
-                    st.rerun()
-    
-    
-    # ================================
-    # 📝 REGISTRO DE VEHÍCULOS
-    # ================================
-    
-        elif st.session_state.pagina == "registro":
-        
-            st.markdown("## Registrar vehículo")
-        
-            tipo = st.selectbox("Tipo de vehículo", ["Moto", "Camioneta", "Bicicleta"])
-        
-            # 👇 placa solo si no es bicicleta
-            if tipo != "Bicicleta":
-                placa = st.text_input("Placa")
-            else:
-                placa = "SIN-PLACA"
-        
-            administracion = st.selectbox("Administración", ADMINISTRACIONES)
-        
-            oficina = st.text_input("Oficina")
-        
-            estado = st.selectbox("Estado", [
-                "Operativo",
-                "En mantenimiento",
-                "Fuera de servicio"
-            ])
-        
+    # ====================
+    # REGISTRO
+    # ====================
+    elif st.session_state.subpagina == "registro":
+
+        st.markdown("## Registrar vehículo")
+
+        tipo = st.selectbox("Tipo", ["Moto", "Camioneta", "Bicicleta"])
+
+        if tipo != "Bicicleta":
+            placa = st.text_input("Placa")
+        else:
+            placa = "SIN-PLACA"
+
+        administracion = st.selectbox("Administración", ADMINISTRACIONES)
+        oficina = st.text_input("Oficina")
+        estado = st.selectbox("Estado", ["Operativo","En mantenimiento","Fuera de servicio"])
+        detalle = st.text_area("Detalle")
+
+        disabled = False
+        if tipo != "Bicicleta" and not placa:
+            disabled = True
+        if not oficina:
+            disabled = True
+
+        if st.button("Registrar", disabled=disabled):
+
+            supabase.table("vehiculos").insert({
+                "placa": placa,
+                "tipo": tipo,
+                "administracion": administracion,
+                "oficina": oficina,
+                "estado": estado,
+                "detalle": detalle,
+                "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }).execute()
+
+            st.success("Registrado 🚀")
+
+        with st.form("volver_reg"):
+            if st.form_submit_button("← Volver"):
+                st.session_state.subpagina = "menu"
+                st.rerun()
+
+    # ====================
+    # INCIDENCIAS
+    # ====================
+    elif st.session_state.subpagina == "incidencia":
+
+        st.markdown("## Reportar incidencia")
+
+        vehiculos = supabase.table("vehiculos").select("placa").execute()
+        placas = [v["placa"] for v in vehiculos.data]
+
+        if not placas:
+            st.warning("No hay vehículos")
+        else:
+            placa = st.selectbox("Placa", placas)
+            tipo = st.selectbox("Tipo", ["Falla","Accidente","Retraso","Otro"])
             detalle = st.text_area("Detalle")
-        
-            # 🚨 VALIDACIONES
-            disabled = False
-        
-            if tipo != "Bicicleta" and not placa:
-                disabled = True
-        
-            if not oficina:
-                disabled = True
-        
-            if st.button("Registrar vehículo", disabled=disabled):
-        
-                if tipo != "Bicicleta":
-                    existente = supabase.table("vehiculos") \
-                        .select("*") \
-                        .eq("placa", placa) \
-                        .execute()
-        
-                    if len(existente.data) > 0:
-                        st.error("❌ Esta placa ya está registrada")
-                        st.stop()
-        
-                supabase.table("vehiculos").insert({
+
+            if st.button("Reportar"):
+                supabase.table("reportes").insert({
                     "placa": placa,
-                    "tipo": tipo,
-                    "administracion": administracion,
-                    "oficina": oficina,
-                    "estado": estado,
+                    "tipo_incidente": tipo,
                     "detalle": detalle,
                     "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 }).execute()
-        
-                st.success("Vehículo registrado 🚀")
-        
-            with st.form("volver_registro"):
-                if st.form_submit_button("← Volver"):
-                    st.session_state.pagina = "vehiculos"
-                    st.rerun()
-    
-    
-    # ================================
-    # 🚨 INCIDENCIAS
-    # ================================
-    
-        elif st.session_state.pagina == "incidencia":
-        
-            st.markdown("## Reportar incidencia")
-        
-            vehiculos = supabase.table("vehiculos").select("placa").execute()
-        
-            lista_placas = [v["placa"] for v in vehiculos.data]
-        
-            if len(lista_placas) == 0:
-                st.warning("No hay vehículos registrados")
-            else:
-        
-                placa = st.selectbox("Placa del vehículo", lista_placas)
-        
-                tipo_incidente = st.selectbox("Tipo de incidente", [
-                    "Falla mecánica",
-                    "Accidente",
-                    "Retraso",
-                    "Otro"
-                ])
-        
-                detalle = st.text_area("Detalle")
-        
-                if st.button("Registrar incidencia"):
-        
-                    supabase.table("reportes").insert({
-                        "placa": placa,
-                        "tipo_incidente": tipo_incidente,
-                        "detalle": detalle,
-                        "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    }).execute()
-        
-                    st.success("Incidencia registrada 🚨")
-        
-            with st.form("volver_incidencia"):
-                if st.form_submit_button("← Volver"):
-                    st.session_state.pagina = "vehiculos"
-                    st.rerun()
+
+                st.success("Incidencia registrada 🚨")
+
+        with st.form("volver_inc"):
+            if st.form_submit_button("← Volver"):
+                st.session_state.subpagina = "menu"
+                st.rerun()
         
     elif st.session_state.pagina == "demoras":
         
