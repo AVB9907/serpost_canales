@@ -172,7 +172,7 @@ if st.session_state.user is None:
 
 else:
 
-    st.sidebar.write(f"👤 {st.session_state.user['usuario']}")
+    st.sidebar.write(f"{st.session_state.user['usuario']}")
     
     if st.sidebar.button("Cerrar sesión"):
         st.session_state.user = None
