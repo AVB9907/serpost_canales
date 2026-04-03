@@ -22,16 +22,16 @@ div[data-testid="stForm"] {
     padding: 0 !important;
 }
 
-/* Contenedor fijo */
+/* FIJADO */
 .volver-fixed {
     position: fixed;
-    top: 80px;        /* ajusta altura */
-    left: 20px;       /* distancia izquierda */
+    top: 80px;        
+    left: 20px;       
     z-index: 9999;
 }
 
 .volver-fixed button {
-    background-color: #0ea5e9 !important;  /* 🔵 color */
+    background-color: #0ea5e9 !important; 
     color: white !important;
     border: none !important;
     padding: 8px 14px !important;
@@ -40,9 +40,26 @@ div[data-testid="stForm"] {
     cursor: pointer;
 }
 
-/* Hover */
-.volver-fixed button:hover {
+/* BOTONES DE FORM (LOGIN + VOLVER) */
+div[data-testid="stForm"] button {
+    background-color: #0ea5e9 !important;  /* azul fijo */
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+}
+
+/* HOVER */
+div[data-testid="stForm"] button:hover {
     background-color: #0284c7 !important;
+}
+
+/* QUITAR EFECTOS DE TEMA */
+div[data-testid="stForm"] button:focus,
+div[data-testid="stForm"] button:active {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* FONDO */
