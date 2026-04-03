@@ -138,23 +138,23 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
 
 /* INDIGO */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
-    background: #2b2d4299 !important; 
+    background: #2b2d42b3 !important; 
 } 
 
 /* LAVENDER GREY */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
-    background: #8d99aecc !important;
+    background: #8d99aeb3 !important;
 }
 
 /* PLATINUM */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
-    background: #edf2f480 !important;
+    background: #edf2f4b3 !important;
     color: #2b2d42 !important;
 }
 
 /* PUNCH RED */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
-    background: #ef233ccc !important;
+    background: #ef233cb3 !important;
 }
 
 """, unsafe_allow_html=True)
