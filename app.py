@@ -154,24 +154,24 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* INDIGO */
-div[data-testid="stHorizontalBlock"] > div:nth-of-type(1) > div > div > button {
+/* MODULO 1 */
+div[data-testid="column"]:nth-of-type(1) button {
     background: #2b2d42b3 !important;
 }
 
-/* GRIS */
-div[data-testid="stHorizontalBlock"] > div:nth-of-type(2) > div > div > button {
+/* MODULO 2 */
+div[data-testid="column"]:nth-of-type(2) button {
     background: #8d99aeb3 !important;
 }
 
-/* BLANCO */
-div[data-testid="stHorizontalBlock"] > div:nth-of-type(3) > div > div > button {
+/* MODULO 3 */
+div[data-testid="column"]:nth-of-type(3) button {
     background: #edf2f4b3 !important;
     color: #2b2d42 !important;
 }
 
-/* ROJO */
-div[data-testid="stHorizontalBlock"] > div:nth-of-type(4) > div > div > button {
+/* MODULO 4 */
+div[data-testid="column"]:nth-of-type(4) button {
     background: #ef233c !important;
 }
 
