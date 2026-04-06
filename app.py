@@ -154,24 +154,32 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* MODULO 1 */
-.modulos div[data-testid="column"]:nth-of-type(1) button {
+/* SOLO BOTONES GRANDES (NO TOCA OTROS) */
+div[data-testid="stHorizontalBlock"] button[kind="secondary"] {
+    height: 200px !important;
+    border-radius: 22px !important;
+    font-size: 20px !important;
+    font-weight: 600;
+}
+
+/* PRIMER BOTON */
+div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(1) {
     background: #2b2d42b3 !important;
 }
 
-/* MODULO 2 */
-.modulos div[data-testid="column"]:nth-of-type(2) button {
+/* SEGUNDO */
+div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(2) {
     background: #8d99aeb3 !important;
 }
 
-/* MODULO 3 */
-.modulos div[data-testid="column"]:nth-of-type(3) button {
+/* TERCERO */
+div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(3) {
     background: #edf2f4b3 !important;
     color: #2b2d42 !important;
 }
 
-/* MODULO 4 */
-.modulos div[data-testid="column"]:nth-of-type(4) button {
+/* CUARTO */
+div[data-testid="stHorizontalBlock"] button[kind="secondary"]:nth-of-type(4) {
     background: #ef233c !important;
 }
 
