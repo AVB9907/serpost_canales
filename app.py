@@ -87,33 +87,6 @@ section[data-testid="stSidebar"] button:hover {
     background-repeat: no-repeat;
 }
 
-/* TÍTULO */
-.titulo {
-    font-size: 40px !important;
-    font-weight: 800 !important;
-    color: #f0f0f0 !important;
-    text-align: center !important;
-    margin-bottom: 30px !important;
-}
-
-/* SUBTÍTULO */
-.sub {
-    text-align: center;
-    color: #f0f0f0 !important;
-    font-size: 20px !important;
-}
-
-/* TÍTULOS DENTRO DE LOS MÓDULOS */
-h2 {
-    color: #f0f0f0 !important;
-}
-
-/* TEXTOS EN GENERAL */
-p {
-    color: #f0f0f0 !important;
-    font-size: 25px;
-}
-
 /* HOVER */
 div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     transform: translateY(-8px) scale(1.03);
@@ -204,6 +177,33 @@ div[data-testid="stHorizontalBlock"] div.stButton > button::after {
 
 div[data-testid="stHorizontalBlock"] div.stButton > button:hover::after {
     opacity: 1;
+}
+
+/* TÍTULO */
+.titulo {
+    font-size: 40px !important;
+    font-weight: 800 !important;
+    color: #f0f0f0 !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+/* SUBTÍTULO */
+.sub {
+    text-align: center;
+    color: #f0f0f0 !important;
+    font-size: 20px !important;
+}
+
+/* TÍTULOS DENTRO DE LOS MÓDULOS */
+h2 {
+    color: #f0f0f0 !important;
+}
+
+/* TEXTOS EN GENERAL */
+p {
+    color: #f0f0f0 !important;
+    font-size: 25px;
 }
 
 """, unsafe_allow_html=True)
