@@ -163,6 +163,56 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     background: #ef233ccc !important;
 }
 
+/* HOVER PRO NIVEL EMPRESA */
+div[data-testid="stHorizontalBlock"] div.stButton > button {
+    transition: all 0.25s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ELEVACIÓN */
+div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* EFECTO GLOW SUAVE */
+div[data-testid="stHorizontalBlock"] div.stButton > button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255,255,255,0.25), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+div[data-testid="stHorizontalBlock"] div.stButton > button:hover::before {
+    opacity: 1;
+}
+
+/* BRILLO EN MOVIMIENTO */
+div[data-testid="stHorizontalBlock"] div.stButton > button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transform: rotate(25deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+div[data-testid="stHorizontalBlock"] div.stButton > button:hover::after {
+    opacity: 1;
+}
+
 """, unsafe_allow_html=True)
 
 # ======================
@@ -250,7 +300,7 @@ else:
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-            if st.button("Gestión de vehículos", type="secondary"):
+            if st.button("Gestión de vehículos"):
                 st.session_state.pagina = "vehiculos"
                 st.session_state.subpagina = "menu"
                 st.rerun()
