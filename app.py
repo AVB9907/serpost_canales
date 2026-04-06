@@ -108,23 +108,23 @@ div[data-testid="stHorizontalBlock"] div.stButton > button {
     font-weight: 600;
 }
 
-/* 1️⃣ VEHICULOS */
+/* VEHICULOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button {
     background: #2b2d42cc !important;
 }
 
-/* 2️⃣ DEMORAS */
+/* DEMORAS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(2) div.stButton > button {
     background: #8d99aecc !important;
 }
 
-/* 3️⃣ APARTADOS */
+/* APARTADOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
     background: #edf2f4cc !important;
     color: #2b2d42 !important;
 }
 
-/* 4️⃣ NO DISTRIBUIBLES */
+/* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
     background: #ef233ccc !important;
 }
@@ -435,8 +435,9 @@ else:
                 st.rerun()
 
     # ======================
-    # OTROS
+    # APARTADOS
     # ======================
+    
     elif st.session_state.pagina == "apartados":
 
         st.markdown("## Apartados Postales")
@@ -445,6 +446,10 @@ else:
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
+                
+    # ======================
+    # NO DISTRIBUIBLES
+    # ======================
 
     elif st.session_state.pagina == "nodist":
 
