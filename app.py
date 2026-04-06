@@ -155,61 +155,24 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
 }
 
 /* INDIGO */
-div[data-testid="stHorizontalBlock"] > div:nth-child(1) button {
+div[data-testid="stHorizontalBlock"] > div:nth-of-type(1) > div > div > button {
     background: #2b2d42b3 !important;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,0.15) !important;
-
-    box-shadow:
-        inset 0 0 20px rgba(43,45,66,0.5),
-        0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* LAVENDER GREY */
-div[data-testid="stHorizontalBlock"] > div:nth-child(2) button {
+/* GRIS */
+div[data-testid="stHorizontalBlock"] > div:nth-of-type(2) > div > div > button {
     background: #8d99aeb3 !important;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,0.15) !important;
-
-    box-shadow:
-        inset 0 0 20px rgba(141,153,174,0.5),
-        0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* PLATINUM */
-div[data-testid="stHorizontalBlock"] > div:nth-child(3) button {
+/* BLANCO */
+div[data-testid="stHorizontalBlock"] > div:nth-of-type(3) > div > div > button {
     background: #edf2f4b3 !important;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,0.3) !important;
-
-    box-shadow:
-        inset 0 0 25px rgba(237,242,244,0.7),
-        0 10px 30px rgba(0,0,0,0.25);
-
     color: #2b2d42 !important;
 }
 
-/* PUNCH RED PRO */
-div[data-testid="stHorizontalBlock"] > div:nth-child(4) button {
+/* ROJO */
+div[data-testid="stHorizontalBlock"] > div:nth-of-type(4) > div > div > button {
     background: #ef233c !important;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,0.15) !important;
-
-    box-shadow:
-        inset 0 0 20px rgba(239,35,60,0.5),
-        0 10px 30px rgba(0,0,0,0.3);
 }
 
 """, unsafe_allow_html=True)
