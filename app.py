@@ -155,23 +155,23 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
 }
 
 /* MODULO 1 */
-div[data-testid="column"]:nth-of-type(1) button {
+.modulos div[data-testid="column"]:nth-of-type(1) button {
     background: #2b2d42b3 !important;
 }
 
 /* MODULO 2 */
-div[data-testid="column"]:nth-of-type(2) button {
+.modulos div[data-testid="column"]:nth-of-type(2) button {
     background: #8d99aeb3 !important;
 }
 
 /* MODULO 3 */
-div[data-testid="column"]:nth-of-type(3) button {
+.modulos div[data-testid="column"]:nth-of-type(3) button {
     background: #edf2f4b3 !important;
     color: #2b2d42 !important;
 }
 
 /* MODULO 4 */
-div[data-testid="column"]:nth-of-type(4) button {
+.modulos div[data-testid="column"]:nth-of-type(4) button {
     background: #ef233c !important;
 }
 
@@ -255,8 +255,9 @@ else:
     # ======================
     if st.session_state.pagina == "inicio":
 
-        st.markdown('<p class="titulo">ADMINISTRACIÓN DE CANALES</p>', unsafe_allow_html=True)
-        st.markdown('<p class="sub">Seleccione un módulo</p>', unsafe_allow_html=True)
+        st.markdown("## ADMINISTRACIÓN DE CANALES")
+        st.write("Seleccione un módulo")
+        st.markdown('<div class="modulos">', unsafe_allow_html=True)
 
         col1, col2, col3, col4 = st.columns(4)
 
@@ -281,6 +282,8 @@ else:
                 st.session_state.pagina = "nodist"
                 st.rerun()
 
+        st.markdown('</div>', unsafe_allow_html=True)
+        
     # ======================
     # VEHICULOS
     # ======================
