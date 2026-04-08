@@ -490,7 +490,7 @@ else:
     
         st.markdown("## Registro de terceros")
     
-        data = supabase.table("BD_TERCEROS").select("*").execute().data
+        data = supabase.table("REPORTE_TERCEROS").select("*").execute().data
     
         if not data:
             st.warning("No hay datos cargados en BD_TERCEROS")
