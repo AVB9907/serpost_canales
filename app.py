@@ -495,14 +495,11 @@ else:
                 st.session_state.pagina = "inicio"
                 st.rerun()
     if not os.path.exists(RUTA_DB):
-    df_vacio = pd.DataFrame(columns=[
-        "ADMINISTRACION", "NOMBRE", "MES", "MONTO", "FECHA"
-    ])
-    df_vacio.to_excel(RUTA_DB, index=False)
+        df_vacio = pd.DataFrame(columns=[
+            "ADMINISTRACION", "NOMBRE", "MES", "MONTO", "FECHA"
+        ])
+        df_vacio.to_excel(RUTA_DB, index=False)
 
-# =========================
-# 1. ADMINISTRACIÓN
-# =========================
 admins = df["ADMINISTRACIÓN"].dropna().unique()
 
 print("\nADMINISTRACIONES:")
@@ -512,9 +509,6 @@ for i, a in enumerate(admins):
 op_admin = int(input("Seleccione administración: "))
 admin_sel = admins[op_admin - 1]
 
-# =========================
-# 2. PERSONAS
-# =========================
 personas = df[df["ADMINISTRACIÓN"] == admin_sel]["NOMBRES Y APELLIDOS"].dropna().unique()
 
 print("\nPERSONAS:")
@@ -524,9 +518,6 @@ for i, p in enumerate(personas):
 op_persona = int(input("Seleccione persona: "))
 persona_sel = personas[op_persona - 1]
 
-# =========================
-# 3. MES
-# =========================
 meses = [
     "Enero","Febrero","Marzo","Abril","Mayo","Junio",
     "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
@@ -539,14 +530,8 @@ for i, m in enumerate(meses):
 op_mes = int(input("Seleccione mes: "))
 mes_sel = meses[op_mes - 1]
 
-# =========================
-# 4. MONTO
-# =========================
 monto = float(input("Ingrese monto: "))
 
-# =========================
-# GUARDAR
-# =========================
 nuevo = pd.DataFrame([{
     "ADMINISTRACION": admin_sel,
     "NOMBRE": persona_sel,
@@ -559,7 +544,3 @@ df_db = pd.read_excel(RUTA_DB)
 df_total = pd.concat([df_db, nuevo], ignore_index=True)
 
 df_total.to_excel(RUTA_DB, index=False)
-
-print("\n✅ Registro guardado correctamente")
-
-
