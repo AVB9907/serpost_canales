@@ -145,7 +145,7 @@ div[data-testid="stHorizontalBlock"] div.stButton > button {
 
 /* VEHICULOS */
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) div.stButton > button {
-    background: ##0E2A47CC !important;
+    background: #0A2540CC !important;
 }
 
 /* DEMORAS */
@@ -161,7 +161,7 @@ div[data-testid="stHorizontalBlock"] > div:nth-child(3) div.stButton > button {
 
 /* NO DISTRIBUIBLES */
 div[data-testid="stHorizontalBlock"] > div:nth-child(4) div.stButton > button {
-    background: ##B8BDC4CC !important;
+    background: #B8BDC4CC !important;
 }
 
 /* REGISTRO TERCEROS */
