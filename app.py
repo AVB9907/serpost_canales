@@ -516,7 +516,7 @@ else:
 
             monto = st.number_input("Monto", min_value=0.0, step=10.0)
     
-            if st.button("Registrar"):
+            if st.button("Registrar", disabled=disabled):
     
                 if monto <= 0:
                     st.error("Ingrese un monto válido")
