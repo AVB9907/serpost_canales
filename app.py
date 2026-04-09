@@ -533,6 +533,7 @@ else:
     
                         st.success("Registro guardado correctamente")
     
-        if st.button("← Volver"):
-            st.session_state.pagina = "inicio"
-            st.rerun()
+        with st.form("volver_main"):
+                if st.form_submit_button("← Volver"):
+                    st.session_state.pagina = "inicio"
+                    st.rerun()
