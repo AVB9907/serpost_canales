@@ -128,6 +128,13 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
+/* TABS */
+div[role="radiogroup"] {
+    display: flex;
+    justify-content: center !important;
+    gap: 30px;
+}
+
 /* BOTONES */
 div[data-testid="stHorizontalBlock"] div.stButton > button {
     width: 100% !important;
@@ -305,7 +312,7 @@ else:
         st.markdown("##  ADMINISTRACIÓN DE CANALES")
         st.write("Seleccione un módulo")
         
-        col1, col2, col3 = st.columns([3,2,2])
+        col1, col2, col3 = st.columns([1,1,1])
 
         with col2:
             vista = st.radio(
