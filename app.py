@@ -315,7 +315,8 @@ else:
                 ["🔧 Operación", "📊 Dashboards"],
                 horizontal=True
             )
-
+            
+        st.markdown("</div>", unsafe_allow_html=True)
         st.markdown('<div class="modulos">', unsafe_allow_html=True)
 
         if vista == "Operación":
