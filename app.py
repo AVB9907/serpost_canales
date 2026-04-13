@@ -354,6 +354,8 @@ else:
                 "BI"
             ])
 
+            st.subheader("Estado de Envíos")
+
             col1, col2, col3, col4, col5, col6 = st.columns([1,2,2,2,2,1])
 
             with col2:
