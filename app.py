@@ -353,19 +353,6 @@ else:
                 "Operaciones",
                 "BI"
             ])
-
-            st.subheader("Estado de Envíos")
-
-            col1, col2, col3, col4, col5, col6 = st.columns([1,2,2,2,2,1])
-
-            with col2:
-                st.metric("🟢 Finalizados", 120)
-            with col3:
-                st.metric("🟡 Pendientes", 45)
-            with col4:
-                st.metric("🔴 Devoluciones", 18)
-            with col5:
-                st.metric("🔵 Total", 183)
                 
             st.markdown('</div>', unsafe_allow_html=True)
             
