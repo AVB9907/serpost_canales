@@ -315,37 +315,39 @@ else:
             )
         st.markdown('<div class="modulos">', unsafe_allow_html=True)
 
-        col1, col2, col3, col4, col5 = st.columns(5)
+        if vista == "🔧 Operación":
+            
+            col1, col2, col3, col4, col5 = st.columns(5)
 
-        with col1:
-            if st.button("Gestión de vehículos", use_container_width=True):
-                st.session_state.pagina = "vehiculos"
-                st.session_state.subpagina = "menu"
-                st.rerun()
-
-        with col2:
-            if st.button("Reportar demoras", use_container_width=True):
-                st.session_state.pagina = "demoras"
-                st.rerun()
-
-        with col3:
-            if st.button("Apartados postales", use_container_width=True):
-                st.session_state.pagina = "apartados"
-                st.rerun()
-
-        with col4:
-            if st.button("No distribuibles", use_container_width=True):
-                st.session_state.pagina = "nodist"
-                st.rerun()
-                
-        with col5:
-                    if st.button("Registro terceros", use_container_width=True):
-                        st.session_state.pagina = "RT"
-                        st.rerun()
-
-        
-        st.markdown('</div>', unsafe_allow_html=True)
-        
+            with col1:
+                if st.button("Gestión de vehículos", use_container_width=True):
+                    st.session_state.pagina = "vehiculos"
+                    st.session_state.subpagina = "menu"
+                    st.rerun()
+    
+            with col2:
+                if st.button("Reportar demoras", use_container_width=True):
+                    st.session_state.pagina = "demoras"
+                    st.rerun()
+    
+            with col3:
+                if st.button("Apartados postales", use_container_width=True):
+                    st.session_state.pagina = "apartados"
+                    st.rerun()
+    
+            with col4:
+                if st.button("No distribuibles", use_container_width=True):
+                    st.session_state.pagina = "nodist"
+                    st.rerun()
+                    
+            with col5:
+                        if st.button("Registro terceros", use_container_width=True):
+                            st.session_state.pagina = "RT"
+                            st.rerun()
+    
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+            
     # ======================
     # VEHICULOS
     # ======================
