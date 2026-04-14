@@ -131,7 +131,7 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
 /* TABS */
 div[data-testid="stRadio"] {
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
 }
 
 /* OPCIONES */
