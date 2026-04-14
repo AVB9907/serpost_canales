@@ -271,7 +271,7 @@ if st.session_state.user is None:
                     user = res.data[0]
 
                    if user["password"] == password:
-                        st.session_state.user = user
+                       st.session_state.user = user
                     
                         if user["cambiar_password"]:
                             st.session_state.pagina = "cambiar_password"
