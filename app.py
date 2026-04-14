@@ -314,7 +314,7 @@ else:
     # ======================
     if st.session_state.pagina == "inicio":
 
-        st.markdown("##ADMINISTRACIÓN DE CANALES")
+        st.markdown("## ADMINISTRACIÓN DE CANALES")
         st.write("Seleccione un módulo")
         
         col1, col2, col3 = st.columns([2.8,2,2])
