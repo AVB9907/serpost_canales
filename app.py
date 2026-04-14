@@ -29,6 +29,8 @@ div[data-testid="stMarkdownContainer"] h2 {
     text-align: center !important;
     font-size: 40px !important;
     font-weight: 800 !important;
+    
+    transform: translateX(10px);
 }
 
 /* TEXTO */
