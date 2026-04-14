@@ -367,7 +367,7 @@ else:
 
             with tab1:
 
-                st.subheader("Backlog")
+                st.markdown("Backlog")
             
                 st.components.v1.iframe(
                     "https://lookerstudio.google.com/reporting/1ifvnRAcXI8XzkLX1NBBjApcAkaci7BOc/preview/",
