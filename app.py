@@ -360,9 +360,9 @@ else:
             st.markdown("## Centro de Control")
 
             tab1, tab2, tab3 = st.tabs([
+                "BI",
                 "Envíos OPV",
-                "Operaciones",
-                "BI"
+                "Operaciones"
             ])
                 
             st.markdown('</div>', unsafe_allow_html=True)
