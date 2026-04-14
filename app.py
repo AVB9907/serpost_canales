@@ -272,7 +272,9 @@ if st.session_state.user is None:
 
                     if user["password"] == password:
                         st.session_state.user = user
-                        st.rerun()
+                        if user["cambiar_password"]:
+                            st.session_state.pagina = "cambiar_password"
+                            st.rerun()
                     else:
                         st.error("Contraseña incorrecta")
                 else:
@@ -375,6 +377,33 @@ else:
                         
             st.markdown('</div>', unsafe_allow_html=True)
             
+    # ======================
+    # CONTRASEÑAS
+    # ======================      
+    
+    elif st.session_state.pagina == "cambiar_password":
+
+        st.markdown("Cambiar contraseña")
+    
+        nueva = st.text_input("Nueva contraseña", type="password")
+        confirmar = st.text_input("Confirmar contraseña", type="password")
+    
+        if st.button("Guardar"):
+            if nueva != confirmar:
+                st.error("Las contraseñas no coinciden")
+            elif len(nueva) < 6:
+                st.error("Mínimo 6 caracteres")
+            else:
+                supabase.table("usuarios").update({
+                    "password": nueva,
+                    "cambiar_password": False
+                }).eq("id", st.session_state.user["id"]).execute()
+    
+                st.success("Contraseña actualizada")
+    
+                st.session_state.pagina = "inicio"
+                st.rerun()
+                
     # ======================
     # VEHICULOS
     # ======================
@@ -638,3 +667,4 @@ else:
                 if st.form_submit_button("← Volver"):
                     st.session_state.pagina = "inicio"
                     st.rerun()
+    
