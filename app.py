@@ -370,7 +370,7 @@ else:
                 st.subheader("Backlog")
             
                 st.components.v1.iframe(
-                    "https://lookerstudio.google.com/embed/reporting/0B_U5RNpwhcE6ckdmZEJ0ZDJXUnM/",
+                    "https://lookerstudio.google.com/reporting/1ifvnRAcXI8XzkLX1NBBjApcAkaci7BOc/preview/",
                     height=800
                 )
                         
