@@ -360,7 +360,7 @@ else:
             st.markdown("## Centro de Control")
 
             tab1, tab2, tab3 = st.tabs([
-                "BI",
+                "Backlog",
                 "Envíos OPV",
                 "Operaciones"
             ])
