@@ -129,14 +129,10 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover {
 }
 
 /* TABS */
-div[data-testid="stRadio"] > div {
+div[data-testid="stRadio"] {
     display: flex;
     justify-content: center;
-    color: #f0f0f0 !important;
-    font-size: 20px !important;
-    text-align: center !important;
 }
-
 
 /* OPCIONES */
 div[role="radiogroup"] {
@@ -321,12 +317,15 @@ else:
         st.markdown("##  ADMINISTRACIÓN DE CANALES")
         st.write("Seleccione un módulo")
         
-        vista = st.radio(
-            "",
-            ["Operación", "Dashboards"],
-            horizontal=True
+        col1, col2, col3 = st.columns([1,2,1])
+
+        with col2:
+            vista = st.radio(
+                "",
+                ["Operación", "Dashboards"],
+                horizontal=True
         )
-        
+    
         if vista == "Operación":
             
             col1, col2, col3, col4, col5 = st.columns(5)
