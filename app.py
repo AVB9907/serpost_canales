@@ -559,7 +559,7 @@ else:
     
         st.markdown(
             """
-            <iframe src="https://forms.gle/r9cEdfEiEkQL8U9y9"
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdCh7MQIHQ0npFOWVksEj58awAu19bXg_Fl78_oP6WRwpepGA/viewform?embedded=true"
             width="100%"
             height="800"
             frameborder="0"
@@ -569,7 +569,6 @@ else:
             """,
             unsafe_allow_html=True
         )
-
         with st.form("volver_demoras"):
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
