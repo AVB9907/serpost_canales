@@ -341,18 +341,11 @@ else:
             col1, col2, col3, col4, col5 = st.columns(5)
 
             with col1:
-                st.markdown("""
-                <div style="text-align:center;">
-                <https://img.icons8.com/?size=100&id=7493&format=png&color=000000"><br>
-                <span>Gestión de vehículos</span>
-                </div>
-                """, unsafe_allow_html=True)
-            
-                if st.button(" ", key="vehiculos_btn", use_container_width=True):
+                if st.button("🚚 Gestión de vehículos", use_container_width=True):
                     st.session_state.pagina = "vehiculos"
                     st.session_state.subpagina = "menu"
                     st.rerun()
-    
+                
             with col2:
                 if st.button("Reportar demoras", use_container_width=True):
                     st.session_state.pagina = "demoras"
