@@ -261,11 +261,6 @@ div.stButton > button {
     line-height: 1.4;
 }
 
-div.stButton > button::first-line {
-    font-size: 20px;
-    font-weight: 700;
-}
-
 """, unsafe_allow_html=True)
 
 # ======================
@@ -375,7 +370,7 @@ else:
 
             with col1:
                 if st.button(
-                    "Gestión de vehículos\nControl y seguimiento",
+                    "Gestión de vehículos\n Control y seguimiento",
                     use_container_width=True
                 ):
                     st.session_state.pagina = "vehiculos"
