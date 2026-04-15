@@ -341,7 +341,14 @@ else:
             col1, col2, col3, col4, col5 = st.columns(5)
 
             with col1:
-                if st.button("Gestión de vehículos", use_container_width=True):
+                st.markdown("""
+                <div style="text-align:center;">
+                <img src="https://img.icons8.com/material-outlined/48/truck.png"><br>
+                <span>Gestión de vehículos</span>
+                </div>
+                """, unsafe_allow_html=True)
+            
+                if st.button(" ", key="vehiculos_btn", use_container_width=True):
                     st.session_state.pagina = "vehiculos"
                     st.session_state.subpagina = "menu"
                     st.rerun()
