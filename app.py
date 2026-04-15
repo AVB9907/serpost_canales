@@ -233,6 +233,15 @@ div[data-testid="stHorizontalBlock"] div.stButton > button:hover::after {
     opacity: 1;
 }
 
+div.stButton > button {
+    line-height: 1.4;
+}
+
+div.stButton > button::first-line {
+    font-size: 20px;
+    font-weight: 700;
+}
+
 """, unsafe_allow_html=True)
 
 # ======================
