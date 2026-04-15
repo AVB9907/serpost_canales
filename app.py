@@ -559,7 +559,7 @@ else:
     
         st.markdown(
             """
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdCh7MQIHQ0npFOWVksEj58awAu19bXg_Fl78_oP6WRwpepGA/viewform?embedded=true"
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdCh7MQIHQ0npFOWVksEj58awAu19bXg_Fl78_oP6WRwpepGA/viewform?usp=header"
             width="100%"
             height="800"
             frameborder="0"
