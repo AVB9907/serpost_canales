@@ -343,7 +343,7 @@ else:
             with col1:
                 st.markdown("""
                 <div style="text-align:center;">
-                <img src="https://img.icons8.com/material-outlined/48/truck.png"><br>
+                <https://img.icons8.com/?size=100&id=7493&format=png&color=000000"><br>
                 <span>Gestión de vehículos</span>
                 </div>
                 """, unsafe_allow_html=True)
