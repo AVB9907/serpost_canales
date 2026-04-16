@@ -405,7 +405,7 @@ else:
 
             with tab1:
                 st.components.v1.iframe(
-                    "https://datastudio.google.com/reporting/99cc086d-b857-4291-8666-6f2b69437467",
+                    "https://datastudio.google.com/embed/reporting/99cc086d-b857-4291-8666-6f2b69437467/page/QvNcE",
                     height=800
                 )
                         
