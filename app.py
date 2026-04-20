@@ -352,7 +352,7 @@ else:
     # ======================
     if st.session_state.pagina == "inicio":
 
-        st.markdown("## ADMINISTRACIÓN DE CANALES")
+        st.markdown("## AMINISTRACIÓN DE CANALES")
         st.write("Seleccione un módulo")
         
         col1, col2, col3 = st.columns([2.8,2,2])
@@ -393,6 +393,10 @@ else:
                         if st.button("Registro terceros", use_container_width=True):
                             st.session_state.pagina = "RT"
                             st.rerun()
+        # ======================
+        # DASHBOARDS
+        # ======================
+
         elif vista == "Dashboards":
 
             st.markdown("## Centro de Control")
@@ -403,6 +407,10 @@ else:
                 "Operaciones"
             ])
 
+            # ======================
+            # BACKLOG
+            # ======================
+
             with tab1:
                 st.components.v1.iframe(
                     "https://datastudio.google.com/embed/reporting/99cc086d-b857-4291-8666-6f2b69437467/page/QvNcE",
@@ -410,6 +418,69 @@ else:
                 )
                         
             st.markdown('</div>', unsafe_allow_html=True)
+
+            # ======================
+            # ENVÍOS OPV
+            # ======================
+
+            with tab2:
+
+                import pandas as pd
+
+                st.markdown("## Envíos OPV")
+
+                archivo = st.file_uploader("Sube Excel OPV", type=["xlsx"])
+
+                if archivo:
+
+                    df = pd.read_excel(archivo)
+                    df.columns = df.columns.str.strip().str.upper()
+
+                    df["MONTO_DINERO"] = pd.to_numeric(df["MONTO_DINERO"], errors="coerce")
+
+                    total = len(df)
+                    finalizados = df[df["ESTADO_ORDEN"] == "FINALIZADO"].shape[0]
+                    pendientes = df[df["ESTADO_ORDEN"] == "PENDIENTE"].shape[0]
+                    monto_real = df[df["ESTADO_ORDEN"] == "FINALIZADO"]["MONTO_DINERO"].sum()
+
+                    col1, col2, col3, col4 = st.columns(4)
+
+                    col1.metric("Total órdenes", total)
+                    col2.metric("Finalizados", finalizados)
+                    col3.metric("Pendientes", pendientes)
+                    col4.metric("Ingreso real S/.", round(monto_real, 2))
+
+                    conversion = finalizados / total if total > 0 else 0
+                    st.metric("Tasa de conversión", f"{conversion:.2%}")
+
+                    df["FECHA_ORDEN"] = pd.to_datetime(df["FECHA_ORDEN"], errors="coerce")
+                    hoy = pd.Timestamp.today()
+
+                    df["ESTADO_REAL"] = df["ESTADO_ORDEN"]
+
+                    df.loc[
+                        (df["ESTADO_ORDEN"] == "PENDIENTE") &
+                        ((hoy - df["FECHA_ORDEN"]).dt.days > 2),
+                        "ESTADO_REAL"
+                    ] = "ABANDONADO"
+
+                    st.subheader("Estado real (con abandono)")
+                    st.bar_chart(df["ESTADO_REAL"].value_counts())
+
+                    st.subheader("Estado original")
+                    st.bar_chart(df["ESTADO_ORDEN"].value_counts())
+
+                    st.subheader("Tipo de orden vs estado")
+                    tabla = df.groupby(["TIPO_ORDEN", "ESTADO_ORDEN"]).size().unstack().fillna(0)
+                    st.dataframe(tabla)
+
+                    st.subheader("Detalle")
+                    st.dataframe(df)
+
+            # ======================
+            # OPERACIONES
+            # ======================
+
             
     # ======================
     # CONTRASEÑAS
@@ -713,4 +784,3 @@ else:
             if st.form_submit_button("← Volver"):
                 st.session_state.pagina = "inicio"
                 st.rerun()
-                
