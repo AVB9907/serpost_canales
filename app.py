@@ -436,6 +436,12 @@ else:
                     df = pd.read_excel(archivo)
                     df.columns = df.columns.str.strip().str.upper()
             
+                    df["MONTO_DINERO"] = (
+                        df["MONTO_DINERO"]
+                        .astype(str)
+                        .str.replace(",", ".", regex=False)
+                    )
+                    
                     df["MONTO_DINERO"] = pd.to_numeric(df["MONTO_DINERO"], errors="coerce")
                     df["FECHA_ORDEN"] = pd.to_datetime(df["FECHA_ORDEN"], errors="coerce")
             
